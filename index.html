@@ -1,38 +1,562 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Activity Travel Protocol</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #0f1117; color: #e2e8f0; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
-    .container { max-width: 640px; padding: 48px 24px; text-align: center; }
-    .badge { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #64b5f6; border: 1px solid #64b5f6; border-radius: 4px; padding: 4px 10px; margin-bottom: 32px; }
-    h1 { font-size: 36px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; color: #f8fafc; }
-    .tagline { font-size: 18px; color: #94a3b8; line-height: 1.6; margin-bottom: 48px; }
-    .links { display: flex; flex-direction: column; gap: 16px; align-items: center; }
-    .link-primary { display: inline-block; background: #64b5f6; color: #0f1117; font-weight: 700; font-size: 16px; padding: 14px 32px; border-radius: 8px; text-decoration: none; width: 100%; max-width: 320px; }
-    .link-primary:hover { background: #90caf9; }
-    .link-secondary { display: inline-block; border: 1px solid #334155; color: #94a3b8; font-size: 15px; padding: 13px 32px; border-radius: 8px; text-decoration: none; width: 100%; max-width: 320px; }
-    .link-secondary:hover { border-color: #64b5f6; color: #e2e8f0; }
-    .footer { margin-top: 64px; font-size: 13px; color: #475569; }
-    .footer a { color: #475569; text-decoration: none; }
-    .footer a:hover { color: #94a3b8; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #0f1a14;
+      --ink-mid:   #2e4038;
+      --ink-light: #5a7266;
+      --ink-faint: #94aaa0;
+      --paper:     #f5f2eb;
+      --paper-dark:#ede9e0;
+      --accent:    #1e6b45;
+      --accent-light: #2e8f5c;
+      --rule:      #d4cfc4;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans:  'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--paper);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 60px;
+    }
+    .nav-brand {
+      font-family: var(--serif);
+      font-size: 15px;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-light);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 96px 40px 80px;
+      text-align: left;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 2px;
+      padding: 4px 10px;
+      margin-bottom: 32px;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(42px, 6vw, 68px);
+      line-height: 1.08;
+      color: var(--ink);
+      margin-bottom: 28px;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-tagline {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      max-width: 560px;
+      margin-bottom: 44px;
+      line-height: 1.65;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 14px 28px;
+      border-radius: 3px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--accent-light); }
+    .btn-secondary {
+      display: inline-block;
+      border: 1px solid var(--rule);
+      color: var(--ink-mid);
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 14px 28px;
+      border-radius: 3px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── DIVIDER ── */
+    .section-rule {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .section-rule hr {
+      border: none;
+      border-top: 1px solid var(--rule);
+    }
+
+    /* ── FROM THE FOUNDER ── */
+    .founder {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 72px 40px;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 36px;
+    }
+    .founder-text p {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      max-width: 620px;
+    }
+    .founder-text p:last-of-type { margin-bottom: 40px; }
+    .founder-text p strong {
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .founder-sig {
+      border-left: 2px solid var(--accent);
+      padding-left: 20px;
+      margin-top: 8px;
+    }
+    .founder-sig .name {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--ink);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .founder-sig .title {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--ink-light);
+      line-height: 1.6;
+    }
+
+    /* ── WHAT IS ATP ── */
+    .what {
+      background: var(--paper-dark);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .what-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 72px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px 64px;
+    }
+    .what-intro {
+      grid-column: 1 / -1;
+    }
+    .what-intro h2 {
+      font-family: var(--serif);
+      font-size: 32px;
+      color: var(--ink);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .what-intro p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      max-width: 560px;
+      line-height: 1.75;
+    }
+    .what-item h3 {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .what-item p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--ink-light);
+      line-height: 1.75;
+    }
+    .layer-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(30,107,69,0.08);
+      border-radius: 2px;
+      padding: 2px 7px;
+      margin-bottom: 10px;
+    }
+
+    /* ── CONTACT ── */
+    .contact {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 72px 40px 96px;
+    }
+    .contact h2 {
+      font-family: var(--serif);
+      font-size: 32px;
+      color: var(--ink);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .contact-sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      margin-bottom: 48px;
+      max-width: 480px;
+      line-height: 1.7;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .form-group.full { grid-column: 1 / -1; }
+    label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
+    input, select, textarea {
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--ink);
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      padding: 12px 14px;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent);
+    }
+    textarea { resize: vertical; min-height: 120px; }
+    select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a7266' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+    .form-submit {
+      margin-top: 8px;
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .btn-submit {
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #fff;
+      background: var(--accent);
+      border: none;
+      border-radius: 3px;
+      padding: 14px 32px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-submit:hover { background: var(--accent-light); }
+    .form-note {
+      font-size: 13px;
+      color: var(--ink-faint);
+    }
+    .form-success {
+      display: none;
+      font-size: 15px;
+      color: var(--accent);
+      font-weight: 400;
+      padding: 16px 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 28px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-left {
+      font-size: 13px;
+      color: var(--ink-faint);
+    }
+    .footer-left a {
+      color: var(--ink-faint);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-left a:hover { color: var(--ink-light); }
+    .footer-right {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-right a {
+      font-size: 13px;
+      color: var(--ink-faint);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-right a:hover { color: var(--ink-light); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      nav { padding: 0 20px; }
+      .nav-links { gap: 20px; }
+      .hero, .founder, .contact, .section-rule { padding-left: 24px; padding-right: 24px; }
+      .what-inner { padding: 48px 24px; grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      footer { padding: 24px; flex-direction: column; align-items: flex-start; }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="badge">Open Protocol</div>
-    <h1>Activity Travel Protocol</h1>
-    <p class="tagline">Open specification for activity travel booking interoperability — identity, catalog, booking, payments, fulfillment, and post-trip.</p>
-    <div class="links">
-      <a class="link-primary" href="https://activitytravel.pro">Read the Specification</a>
-      <a class="link-secondary" href="https://github.com/activity-travel-protocol/protocol-spec">View on GitHub</a>
+
+  <nav>
+    <a class="nav-brand" href="/">Activity Travel Protocol</a>
+    <ul class="nav-links">
+      <li><a href="https://activitytravel.pro">Specification</a></li>
+      <li><a href="https://github.com/activity-travel-protocol/protocol-spec">GitHub</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="hero-eyebrow">Open Protocol · Apache 2.0</span>
+    <h1>A protocol for the full<br /><em>travel experience</em></h1>
+    <p class="hero-tagline">
+      Activity Travel Protocol is an open standard for the global travel industry — enabling the discovery, booking, fulfillment, and duty-of-care management of complex, multi-supplier travel experiences.
+    </p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="https://activitytravel.pro">Read the Specification</a>
+      <a class="btn-secondary" href="https://github.com/activity-travel-protocol/protocol-spec">View on GitHub</a>
     </div>
-    <div class="footer">
-      Apache 2.0 &nbsp;·&nbsp; Founded by <a href="https://myauberge.jp">MyAuberge</a>, Hakuba/Chino, Japan &nbsp;·&nbsp; <a href="https://activitytravel.pro">activitytravel.pro</a>
+  </section>
+
+  <div class="section-rule"><hr /></div>
+
+  <!-- FROM THE FOUNDER -->
+  <section class="founder" id="founder">
+    <p class="section-label">From the Founder</p>
+    <div class="founder-text">
+      <p>Wouldn't it be nice if you could book sightseeing and activities alongside your hotel and transport — and then have someone looking out for you throughout your entire journey, until you arrive home safely?</p>
+      <p>A vacation isn't just a hotel room. People want the full experience: the guided tour, the activity, the restaurant, the transfer — assembled together and working as one.</p>
+      <p>But today's OTA and hotel booking systems weren't built for this. They handle discrete inventory: a seat, a room, a car. Complex, multi-supplier activity experiences — where a dozen providers need to collaborate to build a single itinerary — fall outside what any existing protocol can handle. <strong>Without a common language for suppliers to communicate, they simply cannot work together.</strong></p>
+      <p>The natural conclusion is to build that protocol. Easier said than done.</p>
+      <p>Supporting a traveller from the moment they begin booking until they arrive home safely — across multiple suppliers, jurisdictions, and AI agents — is an order of magnitude more complex than anything the travel industry has standardised before. The Activity Travel Protocol is designed as a runtime platform: a Travel Operating System that manages the full lifecycle of a booking, with trust, policy enforcement, duty of care, and AI agent participation built into the protocol itself.</p>
+      <p>The value to the industry and to travellers is clear. But building an open protocol of this scope and releasing it under an Apache 2.0 licence is not something a commercially competitive company would do for its own account. That is precisely why an independent founder needs to build it.</p>
+      <p>So I decided to build it — with the help of Claude. Not just the protocol specification, but the full SDK.</p>
+      <p>This protocol is still a work in progress. When it is ready, I will make a formal announcement.</p>
+      <p>Thank you.</p>
+    </div>
+    <div class="founder-sig">
+      <span class="name">Tom Sato</span>
+      <span class="title">
+        CEO, MyAuberge K.K. — Chino, Nagano, Japan<br />
+        Founding Maintainer, Activity Travel Protocol
+      </span>
+    </div>
+  </section>
+
+  <!-- WHAT IS ATP -->
+  <div class="what">
+    <div class="what-inner">
+      <div class="what-intro">
+        <h2>A four-layer open standard</h2>
+        <p>The Activity Travel Protocol is organized into four layers — from identity and trust through to schema and SDK — each building on the last. Layer 1 is complete. Layers 2 through 4 are in progress.</p>
+      </div>
+      <div class="what-item">
+        <span class="layer-tag">Layer 1 · Complete</span>
+        <h3>Identity &amp; Trust</h3>
+        <p>Party registry, verifiable credentials, jurisdiction compliance, and agentic authorization. Establishes who the parties are and what they are permitted to do.</p>
+      </div>
+      <div class="what-item">
+        <span class="layer-tag">Layer 2 · In Progress</span>
+        <h3>Discovery &amp; Capability</h3>
+        <p>Supplier capability declarations, activity configurations, resource definitions, and pricing structures. Describes what suppliers offer before any booking begins.</p>
+      </div>
+      <div class="what-item">
+        <span class="layer-tag">Layer 3 · Upcoming</span>
+        <h3>Workflow</h3>
+        <p>The state machine governing the full booking lifecycle — from inquiry through negotiation, confirmation, fulfillment, disruption management, and completion.</p>
+      </div>
+      <div class="what-item">
+        <span class="layer-tag">Layer 4 · Upcoming</span>
+        <h3>Schema &amp; SDK</h3>
+        <p>Precise data structures for every protocol object and message, with a full SDK including atp-core, atp-agent, atp-mcp, and nine additional packages.</p>
+      </div>
     </div>
   </div>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <p class="section-label">Get in Touch</p>
+    <h2>Contact</h2>
+    <p class="contact-sub">Consortium membership, press and general enquiries, and developer interest are all welcome.</p>
+
+    <form
+      action="https://formspree.io/f/mreyrqrg"
+      method="POST"
+      id="contact-form"
+    >
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="organisation">Organisation</label>
+          <input type="text" id="organisation" name="organisation" placeholder="Company or project name" />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="enquiry">Enquiry type</label>
+          <select id="enquiry" name="enquiry_type">
+            <option value="" disabled selected>Select a topic</option>
+            <option value="Consortium membership">Consortium membership</option>
+            <option value="General enquiry">General enquiry</option>
+            <option value="Press">Press</option>
+            <option value="Developer / SDK interest">Developer / SDK interest</option>
+          </select>
+        </div>
+
+        <div class="form-group full">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="How can we help?"></textarea>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn-submit">Send message</button>
+          <span class="form-note">We will reply to your email address.</span>
+        </div>
+
+      </div>
+      <p class="form-success" id="form-success">Thank you — your message has been sent.</p>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-left">
+      Apache 2.0 &nbsp;·&nbsp;
+      Founded by <a href="https://myauberge.jp">MyAuberge K.K.</a>, Chino, Nagano, Japan &nbsp;·&nbsp;
+      <a href="https://activitytravel.pro">activitytravel.pro</a>
+    </div>
+    <div class="footer-right">
+      <a href="https://activitytravel.pro">Specification</a>
+      <a href="https://github.com/activity-travel-protocol/protocol-spec">GitHub</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    const success = document.getElementById('form-success');
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.reset();
+        form.querySelector('.form-grid').style.display = 'none';
+        success.style.display = 'block';
+      } else {
+        alert('Something went wrong. Please try again or email tomsato@myauberge.jp directly.');
+      }
+    });
+  </script>
+
 </body>
 </html>
