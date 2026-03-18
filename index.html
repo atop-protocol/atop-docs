@@ -70,6 +70,18 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--accent); }
+    .nav-links a.nav-subscribe {
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 2px;
+      padding: 4px 12px;
+      font-size: 12px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-links a.nav-subscribe:hover {
+      background: var(--accent);
+      color: #fff;
+    }
 
     /* ── HERO ── */
     .hero {
@@ -257,6 +269,67 @@
       margin-bottom: 10px;
     }
 
+    /* ── SUBSCRIBE ── */
+    .subscribe {
+      background: var(--ink);
+      border-top: 1px solid #1a2e22;
+      border-bottom: 1px solid #1a2e22;
+    }
+    .subscribe-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 72px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .subscribe-copy .section-label-light {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      margin-bottom: 20px;
+      display: block;
+    }
+    .subscribe-copy h2 {
+      font-family: var(--serif);
+      font-size: 30px;
+      color: #f5f2eb;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+    }
+    .subscribe-copy p {
+      font-size: 15px;
+      font-weight: 300;
+      color: #7a9e8a;
+      line-height: 1.75;
+    }
+    .subscribe-form-wrap {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .subscribe-frame-container {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.06);
+    }
+    .subscribe-frame-container iframe {
+      display: block;
+      width: 100% !important;
+      border: none !important;
+      background: #fff;
+    }
+    @media (max-width: 640px) {
+      .subscribe-inner { grid-template-columns: 1fr; gap: 32px; padding: 48px 24px; }
+      .subscribe-form-wrap { justify-content: flex-start; }
+      .subscribe-frame-container { max-width: 100%; }
+    }
+
     /* ── CONTACT ── */
     .contact {
       max-width: 800px;
@@ -398,6 +471,7 @@
       <li><a href="https://activitytravel.pro">Specification</a></li>
       <li><a href="https://github.com/activity-travel-protocol/protocol-spec">GitHub</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="#subscribe" class="nav-subscribe">Subscribe</a></li>
     </ul>
   </nav>
 
@@ -469,6 +543,22 @@
     </div>
   </div>
 
+  <!-- SUBSCRIBE -->
+  <section class="subscribe" id="subscribe">
+    <div class="subscribe-inner">
+      <div class="subscribe-copy">
+        <span class="section-label-light">Stay informed</span>
+        <h2>Follow the protocol as it's built</h2>
+        <p>Protocol announcements, design decisions, consortium updates, and developer news — delivered when there is something worth saying.</p>
+      </div>
+      <div class="subscribe-form-wrap">
+        <div class="subscribe-frame-container">
+          <iframe src="https://activitytravel.substack.com/embed" height="320" frameborder="0" scrolling="no"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section class="contact" id="contact">
     <p class="section-label">Get in Touch</p>
@@ -531,6 +621,7 @@
       <a href="https://activitytravel.pro">activitytravel.pro</a>
     </div>
     <div class="footer-right">
+      <a href="#subscribe">Subscribe</a>
       <a href="https://activitytravel.pro">Specification</a>
       <a href="https://github.com/activity-travel-protocol/protocol-spec">GitHub</a>
       <a href="#contact">Contact</a>
