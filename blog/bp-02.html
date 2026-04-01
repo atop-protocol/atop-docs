@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Activity Travel Protocol and the global travel ecosystem — Activity Travel Protocol</title>
+  <meta name="description" content="How the protocol fits into the existing global travel industry, and what it adds that Expedia, Booking.com, GetYourGuide, and Viator cannot provide." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink:#0f1a14;--ink-mid:#2e4038;--ink-light:#5a7266;--ink-faint:#94aaa0;
+      --paper:#f5f2eb;--paper-dark:#ede9e0;--accent:#1e6b45;--rule:#d4cfc4;
+      --serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;
+    }
+    html{scroll-behavior:smooth;}
+    body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+    nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:60px;}
+    .nav-brand{font-family:var(--serif);font-size:15px;color:var(--ink);text-decoration:none;letter-spacing:0.01em;}
+    .nav-links{display:flex;gap:32px;list-style:none;}
+    .nav-links a{font-size:13px;font-weight:500;color:var(--ink-light);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;transition:color 0.2s;}
+    .nav-links a:hover{color:var(--accent);}
+    .nav-links a.nav-active{color:var(--ink);}
+    .nav-links a.nav-subscribe{color:var(--accent);border:1px solid var(--accent);border-radius:2px;padding:4px 12px;font-size:12px;transition:background 0.2s,color 0.2s;}
+    .nav-links a.nav-subscribe:hover{background:var(--accent);color:#fff;}
+    .article-wrap{max-width:720px;margin:0 auto;padding:72px 40px 96px;}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:40px;}
+    .breadcrumb a{color:var(--ink-faint);text-decoration:none;transition:color 0.2s;}
+    .breadcrumb a:hover{color:var(--accent);}
+    .breadcrumb-sep{color:var(--rule);}
+    .post-header{margin-bottom:48px;}
+    .post-arc{display:inline-block;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:2px;padding:4px 10px;margin-bottom:24px;}
+    .post-header h1{font-family:var(--serif);font-size:clamp(32px,5vw,48px);line-height:1.1;color:var(--ink);letter-spacing:-0.02em;margin-bottom:20px;}
+    .post-meta{display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--rule);}
+    .post-date{font-size:13px;color:var(--ink-faint);}
+    .post-audience-tag{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);background:var(--paper-dark);border-radius:2px;padding:3px 8px;}
+    .post-author{display:flex;align-items:center;gap:14px;padding:20px 0;border-bottom:1px solid var(--rule);margin-bottom:48px;}
+    .author-avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--serif);font-size:16px;color:#fff;}
+    .author-info{display:flex;flex-direction:column;gap:2px;}
+    .author-name{font-size:14px;font-weight:500;color:var(--ink);}
+    .author-role{font-size:12px;color:var(--ink-faint);}
+    .author-contact{font-size:12px;color:var(--accent);text-decoration:none;}
+    .author-contact:hover{text-decoration:underline;}
+    .post-body{font-size:17px;line-height:1.8;color:var(--ink-mid);}
+    .post-body h2{font-family:var(--serif);font-size:26px;line-height:1.2;color:var(--ink);letter-spacing:-0.01em;margin:56px 0 20px;}
+    .post-body p{margin-bottom:24px;}
+    .post-body p:last-child{margin-bottom:0;}
+    .diagram-block{background:#e8e3d8;border:1px solid #b8b2a6;border-radius:4px;padding:32px;margin:40px 0;}
+    .diagram-label{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-light);margin-bottom:20px;}
+    .diagram-caption{font-size:13px;font-weight:300;color:var(--ink-light);font-style:italic;margin-top:16px;}
+    .comparison-table{width:100%;border-collapse:collapse;}
+    .comparison-table thead tr{border-bottom:2px solid #b8b2a6;}
+    .comparison-table th{padding:10px 14px;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-align:left;color:var(--ink-light);}
+    .comparison-table th:last-child{color:var(--accent);}
+    .comparison-table td{padding:16px 14px;font-size:14px;font-weight:400;vertical-align:top;line-height:1.65;border-bottom:1px solid #c8c2b6;color:var(--ink-mid);}
+    .comparison-table td:last-child{color:var(--ink);background:#dff0e8;}
+    .comparison-table tr:last-child td{border-bottom:none;}
+    .spec-links{margin:48px 0;padding:28px 32px;background:var(--paper-dark);border:1px solid var(--rule);border-radius:4px;}
+    .spec-links-label{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px;}
+    .spec-links ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+    .spec-links a{font-size:14px;color:var(--accent);text-decoration:none;}
+    .spec-links a:hover{text-decoration:underline;}
+    .spec-links a::before{content:'→ ';}
+    .post-nav{display:flex;justify-content:space-between;margin-top:64px;padding-top:40px;border-top:1px solid var(--rule);}
+    .post-nav-prev{text-align:left;max-width:300px;}
+    .post-nav-next{text-align:right;max-width:300px;}
+    .post-nav-label{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;}
+    .post-nav-title{font-family:var(--serif);font-size:17px;color:var(--ink);text-decoration:none;line-height:1.3;letter-spacing:-0.01em;display:block;transition:color 0.2s;}
+    .post-nav-title:hover{color:var(--accent);}
+    .post-nav-next .post-nav-title::after{content:' →';}
+    .post-nav-prev .post-nav-title::before{content:'← ';}
+    footer{border-top:1px solid var(--rule);padding:28px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+    .footer-left{font-size:13px;color:var(--ink-faint);}
+    .footer-left a{color:var(--ink-faint);text-decoration:none;}
+    .footer-left a:hover{color:var(--ink-light);}
+    .footer-right{display:flex;gap:24px;}
+    .footer-right a{font-size:13px;color:var(--ink-faint);text-decoration:none;}
+    .footer-right a:hover{color:var(--ink-light);}
+    @media(max-width:680px){nav{padding:0 20px;}.nav-links{gap:16px;}.nav-links a{font-size:11px;}.article-wrap{padding:48px 24px 72px;}.post-nav{flex-direction:column;gap:24px;}.post-nav-next,.post-nav-prev{max-width:100%;text-align:left;}.post-nav-next .post-nav-title::after{content:' →';}footer{padding:24px;flex-direction:column;align-items:flex-start;}}
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-brand" href="https://activitytravel.org/">Activity Travel Protocol</a>
+    <ul class="nav-links">
+      <li><a href="/blog/" class="nav-active">Blog</a></li>
+      <li><a href="https://activitytravel.pro">Specification</a></li>
+      <li><a href="https://github.com/activity-travel-protocol/protocol-spec">GitHub</a></li>
+      <li><a href="https://activitytravel.org/#contact">Contact</a></li>
+      <li><a href="https://activitytravel.org/#subscribe" class="nav-subscribe">Subscribe</a></li>
+    </ul>
+  </nav>
+  <article class="article-wrap">
+    <div class="breadcrumb"><a href="/blog/">Blog</a><span class="breadcrumb-sep">›</span><span>Arc 1 — The Problem and the Protocol</span></div>
+    <header class="post-header">
+      <span class="post-arc">Arc 1 — The Problem and the Protocol</span>
+      <h1>The Activity Travel Protocol and the global travel ecosystem</h1>
+      <div class="post-meta">
+        <span class="post-date">1 April 2026</span>
+        <span class="post-audience-tag">OTAs · Aggregators · Tour operators</span>
+      </div>
+    </header>
+    <div class="post-author">
+      <div class="author-avatar">TS</div>
+      <div class="author-info">
+        <span class="author-name">Tom Sato</span>
+        <span class="author-role">Founding Maintainer, Activity Travel Protocol</span>
+        <a class="author-contact" href="https://activitytravel.org/#contact">Contact →</a>
+      </div>
+    </div>
+    <div class="post-body">
+      <h2>The market is enormous, and it is held together with wire</h2>
+      <p>The global activity travel market is one of the largest and fastest-growing segments in tourism. Viator lists over 300,000 experiences. GetYourGuide carries more than 140,000 activities. Klook has built a dominant position across Asia-Pacific. And yet, behind every one of those bookings, something structurally broken is happening: the supplier and the platform are connected by a custom integration that someone built by hand, that someone else maintains, and that no one has yet figured out how to replace at scale.</p>
+      <p>When a traveller books a ski lesson through an OTA, three things happen in the background that the traveller never sees. First, the OTA queries a supplier API that was built specifically for that OTA. Second, the booking confirmation travels back through a chain of middleware that was assembled over several years of bilateral negotiation. Third, if something goes wrong — the lesson is cancelled, the instructor changes, the weather closes the mountain — there is no standard mechanism for any of that to propagate back through the chain. Each party manages their own state. No one has a shared view.</p>
+      <p>This is not a problem that a few smart engineers missed. It is the structural consequence of a market that scaled before it had a common language. And it is now an urgent problem, because AI agents are arriving in the booking flow and they need that common language to function.</p>
+
+      <h2>The industry has solved this before, for simpler cases</h2>
+      <p>The airline industry had exactly this problem in the 1990s. The answer was NDC — IATA's New Distribution Capability standard. NDC gave every airline and every travel agent a common schema for pricing, availability, and booking. It took years and significant regulatory pressure to achieve, but it worked. Airlines can now distribute their inventory through any NDC-compliant channel without building a custom integration for each one.</p>
+      <p>The hotel industry followed with OpenTravel. The schema is now the industry standard for hotel availability and reservation data. Channel managers built on it. GDSs built on it. OTAs built on it.</p>
+      <p>But both NDC and OpenTravel solved a specific, bounded problem: one product type, one supplier, one booking. A hotel room. An airline seat. They were never designed for the complexity that defines activity travel: multi-supplier itineraries assembled dynamically, with per-person configuration, duty of care obligations across multiple parties, and AI agents making binding commercial commitments in real time.</p>
+      <p>Activities are the last frontier. And they are the hardest.</p>
+
+      <h2>The Activity Travel Protocol is not competing with Viator or Expedia — it is the layer underneath them</h2>
+      <p>This is the insight that clarifies where the Activity Travel Protocol sits in the ecosystem. The protocol does not replace OTAs. It does not replace aggregators. It does not replace the channel managers and booking systems that suppliers use to manage their inventory. What it provides is a common language for all of them.</p>
+      <p>When a supplier publishes a Capability Declaration under the Activity Travel Protocol, that declaration is readable by any platform that implements the protocol. An OTA building on the protocol can query the supplier's availability, capabilities, and pricing through a single standard interface — the same interface they use for every other protocol-compliant supplier. One integration. The entire network.</p>
+      <p>For the OTA, this is the NDC moment for activities. Instead of building and maintaining bilateral integrations with thousands of suppliers across dozens of markets, they build one integration to the protocol, and the network effect compounds from there. For the supplier — the ski school, the local guide, the adventure operator — it means one registration, not fifty separate onboarding processes for fifty separate distribution channels.</p>
+      <p>And critically, the Activity Travel Protocol is designed for what NDC and OpenTravel were not built for: the AI-era booking. The Booking Object is not a static reservation record. It is a live runtime entity — a first-class object in a state machine that tracks every party, every obligation, every Duty of Care assignment, and every disruption event, from initial inquiry through to the traveller's safe return home.</p>
+
+      <div class="diagram-block">
+        <div class="diagram-label">Diagram — The Activity Travel Ecosystem: before and after</div>
+        <table class="comparison-table">
+          <thead><tr><th>Without a shared standard</th><th>With the Activity Travel Protocol</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Each OTA builds bilateral integrations with each supplier. N suppliers × M OTAs = N×M integrations, each maintained separately.</td>
+              <td>Every supplier publishes one Capability Declaration. Every OTA reads it through one interface. The network effect works for everyone.</td>
+            </tr>
+            <tr>
+              <td>When a flight is cancelled, each downstream supplier — hotel, activity, transfer — has to be contacted separately. The traveller is the integration layer.</td>
+              <td>A Disruption Event Declaration propagates across every affected Booking Object. Suppliers are notified simultaneously. The traveller is not the integration layer.</td>
+            </tr>
+            <tr>
+              <td>AI agents make bookings with no defined authority scope, no verification, and no audit trail.</td>
+              <td>Every AI agent holds a declared, verified authority scope. The Security Kernel enforces it at every state transition.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="diagram-caption">One integration. The entire network.</div>
+      </div>
+
+      <h2>The cost of fragmentation compounds</h2>
+      <p>The activity travel market is at an inflection point. AI travel assistants are proliferating. Every major OTA is evaluating how to connect to activity suppliers at scale. The architectural decisions being made right now will define the distribution economics of the sector for the next decade.</p>
+      <p>If those decisions are made independently — each platform building its own proprietary connection layer, its own supplier onboarding process, its own booking schema — the cost falls on everyone. Suppliers onboard multiple times, to incompatible systems, with no portability between platforms. OTAs maintain bilateral integrations that grow more expensive as the supplier network scales. And when AI agents need to move across platforms — which is the structural reality of how agentic travel will work — there is no common language for them to operate in.</p>
+      <p>A common open standard inverts that dynamic. The cost of integration is paid once. The network effect compounds with every new participant. And the AI agent has a consistent protocol to operate against, regardless of which platform it is connecting to.</p>
+      <p>This is not a new argument — it is exactly the argument that produced NDC for airlines and OpenTravel for hotels. Both of those standards succeeded because enough of the industry recognised that a shared language was worth more than a proprietary advantage in plumbing. The Activity Travel Protocol is Apache 2.0 licensed. The specification is published and open. The governance is designed to be independent of any single company. The industry has built common standards before, when the moment called for it. This is that moment for activities.</p>
+    </div>
+    <div class="spec-links">
+      <div class="spec-links-label">Read more in the specification</div>
+      <ul>
+        <li><a href="https://activitytravel.pro/layer2/">Capability Declarations — activitytravel.pro/layer2/</a></li>
+        <li><a href="https://activitytravel.pro/positions/">Standards positions — activitytravel.pro/positions/</a></li>
+      </ul>
+    </div>
+    <nav class="post-nav" aria-label="Post navigation">
+      <div class="post-nav-prev">
+        <div class="post-nav-label">Previous</div>
+        <a class="post-nav-title" href="./bp-01.html">What is the Activity Travel Protocol?</a>
+      </div>
+      <div class="post-nav-next">
+        <div class="post-nav-label">Next</div>
+        <a class="post-nav-title" href="./bp-03.html">How does the Activity Travel Protocol fit into existing travel standards?</a>
+      </div>
+    </nav>
+  </article>
+  <footer>
+    <div class="footer-left">Apache 2.0 &nbsp;·&nbsp; Founded by <a href="https://myauberge.com">MyAuberge K.K.</a> &nbsp;·&nbsp; <a href="https://activitytravel.pro">activitytravel.pro</a></div>
+    <div class="footer-right">
+      <a href="https://activitytravel.org/#subscribe">Subscribe</a>
+      <a href="https://activitytravel.pro">Specification</a>
+      <a href="https://github.com/activity-travel-protocol/protocol-spec">GitHub</a>
+      <a href="https://activitytravel.org/#contact">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>

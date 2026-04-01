@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>The gap in travel regulation that no one has addressed yet — Activity Travel Protocol</title>
+  <meta name="description" content="Existing travel regulation was written for single-entity products and predictable disruptions. The AI-era package holiday does not fit that model. This post names the gaps."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--ink:#0f1a14;--ink-mid:#2e4038;--ink-light:#5a7266;--ink-faint:#94aaa0;--paper:#f5f2eb;--paper-dark:#ede9e0;--accent:#1e6b45;--rule:#d4cfc4;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;}
+    html{scroll-behavior:smooth;}body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+    nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:60px;}
+    .nav-brand{font-family:var(--serif);font-size:15px;color:var(--ink);text-decoration:none;letter-spacing:0.01em;}
+    .nav-links{display:flex;gap:32px;list-style:none;}.nav-links a{font-size:13px;font-weight:500;color:var(--ink-light);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;transition:color 0.2s;}.nav-links a:hover{color:var(--accent);}.nav-links a.nav-active{color:var(--ink);}.nav-links a.nav-subscribe{color:var(--accent);border:1px solid var(--accent);border-radius:2px;padding:4px 12px;font-size:12px;}.nav-links a.nav-subscribe:hover{background:var(--accent);color:#fff;}
+    .article-wrap{max-width:720px;margin:0 auto;padding:72px 40px 96px;}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:40px;}.breadcrumb a{color:var(--ink-faint);text-decoration:none;}.breadcrumb a:hover{color:var(--accent);}.breadcrumb-sep{color:var(--rule);}
+    .post-header{margin-bottom:48px;}.post-arc{display:inline-block;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:2px;padding:4px 10px;margin-bottom:24px;}.post-header h1{font-family:var(--serif);font-size:clamp(32px,5vw,48px);line-height:1.1;color:var(--ink);letter-spacing:-0.02em;margin-bottom:20px;}
+    .post-meta{display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--rule);}.post-date{font-size:13px;color:var(--ink-faint);}.post-audience-tag{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);background:var(--paper-dark);border-radius:2px;padding:3px 8px;}
+    .post-author{display:flex;align-items:center;gap:14px;padding:20px 0;border-bottom:1px solid var(--rule);margin-bottom:48px;}.author-avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--serif);font-size:16px;color:#fff;}.author-info{display:flex;flex-direction:column;gap:2px;}.author-name{font-size:14px;font-weight:500;color:var(--ink);}.author-role{font-size:12px;color:var(--ink-faint);}.author-contact{font-size:12px;color:var(--accent);text-decoration:none;}.author-contact:hover{text-decoration:underline;}
+    .post-body{font-size:17px;line-height:1.8;color:var(--ink-mid);}.post-body h2{font-family:var(--serif);font-size:26px;line-height:1.2;color:var(--ink);letter-spacing:-0.01em;margin:56px 0 20px;}.post-body h3{font-size:16px;font-weight:500;color:var(--ink);margin:32px 0 12px;}.post-body p{margin-bottom:24px;}.post-body p:last-child{margin-bottom:0;}
+    .pullquote{border-left:3px solid var(--accent);margin:40px 0;padding:20px 24px;background:#e8e3d8;font-family:var(--serif);font-size:20px;line-height:1.4;color:var(--ink);font-style:italic;}
+    .diagram-block{background:#e8e3d8;border:1px solid #b8b2a6;border-radius:4px;padding:32px;margin:40px 0;}.diagram-label{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-light);margin-bottom:20px;}
+    .model-table{width:100%;border-collapse:collapse;}.model-table thead tr{border-bottom:2px solid #b8b2a6;}.model-table th{padding:10px 14px;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-align:left;}.model-table th:first-child{color:var(--ink-light);}.model-table th:last-child{color:var(--accent);}.model-table td{padding:14px 14px;font-size:14px;font-weight:400;vertical-align:top;line-height:1.6;border-bottom:1px solid #c8c2b6;}.model-table td:first-child{color:var(--ink-mid);}.model-table td:last-child{color:var(--ink);background:#dff0e8;font-weight:500;}.model-table tr:last-child td{border-bottom:none;}
+    .direction-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:4px;}
+    .direction-card{background:#f0ece3;border:1px solid #c8c2b6;border-radius:3px;padding:16px;}
+    .direction-card strong{font-size:13px;font-weight:500;color:var(--ink);display:block;margin-bottom:8px;}
+    .direction-card p{font-size:13px;color:var(--ink-light);line-height:1.55;margin:0;}
+    .spec-links{margin:48px 0;padding:28px 32px;background:var(--paper-dark);border:1px solid var(--rule);border-radius:4px;}.spec-links-label{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px;}.spec-links ul{list-style:none;display:flex;flex-direction:column;gap:8px;}.spec-links a{font-size:14px;color:var(--accent);text-decoration:none;}.spec-links a:hover{text-decoration:underline;}.spec-links a::before{content:'→ ';}
+    .post-nav{display:flex;justify-content:space-between;margin-top:64px;padding-top:40px;border-top:1px solid var(--rule);}.post-nav-prev{text-align:left;max-width:300px;}.post-nav-next{text-align:right;max-width:300px;}.post-nav-label{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;}.post-nav-title{font-family:var(--serif);font-size:17px;color:var(--ink);text-decoration:none;line-height:1.3;display:block;transition:color 0.2s;}.post-nav-title:hover{color:var(--accent);}.post-nav-next .post-nav-title::after{content:' →';}.post-nav-prev .post-nav-title::before{content:'← ';}
+    footer{border-top:1px solid var(--rule);padding:28px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}.footer-left{font-size:13px;color:var(--ink-faint);}.footer-left a{color:var(--ink-faint);text-decoration:none;}.footer-right{display:flex;gap:24px;}.footer-right a{font-size:13px;color:var(--ink-faint);text-decoration:none;}.footer-right a:hover{color:var(--ink-light);}
+    @media(max-width:680px){nav{padding:0 20px;}.nav-links{gap:16px;}.nav-links a{font-size:11px;}.article-wrap{padding:48px 24px 72px;}.direction-grid{grid-template-columns:1fr;}.post-nav{flex-direction:column;gap:24px;}.post-nav-next,.post-nav-prev{max-width:100%;text-align:left;}footer{padding:24px;flex-direction:column;align-items:flex-start;}}
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-brand" href="https://activitytravel.org/">Activity Travel Protocol</a>
+    <ul class="nav-links">
+      <li><a href="/blog/" class="nav-active">Blog</a></li>
+      <li><a href="https://activitytravel.pro">Specification</a></li>
+      <li><a href="https://github.com/activity-travel-protocol/protocol-spec">GitHub</a></li>
+      <li><a href="https://activitytravel.org/#contact">Contact</a></li>
+      <li><a href="https://activitytravel.org/#subscribe" class="nav-subscribe">Subscribe</a></li>
+    </ul>
+  </nav>
+  <article class="article-wrap">
+    <div class="breadcrumb"><a href="/blog/">Blog</a><span class="breadcrumb-sep">›</span><span>Arc 3 — Policy and Regulation</span></div>
+    <header class="post-header">
+      <span class="post-arc">Arc 3 — Policy and Regulation</span>
+      <h1>The gap in travel regulation that no one has addressed yet</h1>
+      <div class="post-meta">
+        <span class="post-date">1 April 2026</span>
+        <span class="post-audience-tag">Regulators · Policy makers · Travel industry press</span>
+      </div>
+    </header>
+    <div class="post-author">
+      <div class="author-avatar">TS</div>
+      <div class="author-info">
+        <span class="author-name">Tom Sato</span>
+        <span class="author-role">Founding Maintainer, Activity Travel Protocol</span>
+        <a class="author-contact" href="https://activitytravel.org/#contact">Contact →</a>
+      </div>
+    </div>
+    <div class="post-body">
+      <h2>The hotel that cannot sell a ski weekend</h2>
+      <p>A hotel in the Japanese Alps wants to offer its guests a complete ski weekend. Not just a room. The whole experience: hotel accommodation, ski school lesson, equipment rental, transfer from the station, a table at a local izakaya on Saturday evening.</p>
+      <p>It cannot do this legally.</p>
+      <p>Under Japan's Travel Agency Act, only a licensed travel agency can package hotel accommodation together with an off-premise activity and sell the bundle to the general public. The hotel is not a licensed travel agency. To offer the package, it must either send guests to find the ski school themselves — destroying the experience — or create a travel agency subsidiary whose sole purpose is to hold a licence it would not otherwise need.</p>
+      <p>Most hotels create the subsidiary. It works, just about. But it costs money, adds legal overhead, and solves nothing for the underlying problem: a law written in 1952, last revised in 2019, is creating enormous friction in one of Japan's most strategically important inbound tourism sectors.</p>
+      <p>That is the everyday friction. There is a far more serious gap — one that no travel regulation in any jurisdiction has yet addressed.</p>
+      <p>In March 2026, over 200 Japanese travellers found themselves stranded at Dubai International Airport as the Iran conflict escalated suddenly and airspace closures cascaded across the region. In 2011, the Tohoku earthquake and tsunami claimed nearly 20,000 lives, including foreign travellers, and left inbound tourists stranded across northern Japan with no coordinated mechanism to account for them, communicate with their families, or organise safe passage home.</p>
+
+      <div class="pullquote">When war or earthquake strikes, the question is not which travel agency holds the licence. The question is whether anyone — any government, any industry body — has the infrastructure to find the travellers and bring them home.</div>
+
+      <h2>The gap that regulation has not yet closed</h2>
+      <p>The everyday gap and the catastrophic gap share the same root: travel regulation was designed for a world of single-entity products, predictable operations, and disruptions that individual businesses could manage.</p>
+      <p>The EU Package Travel Directive was designed in 1990 and updated in 2015 for the tour operator era: one licensed organiser, one pre-packaged holiday, one consumer. But the AI-era booking involves an AI orchestration agent, a protocol layer, a hotel, a ski school, a taxi company, and an activity guide — assembled dynamically on the traveller's request, across multiple jurisdictions, in real time. No single entity in that chain maps cleanly to the Directive's concept of an organiser.</p>
+
+      <div class="diagram-block">
+        <div class="diagram-label">Diagram — Old model vs. new reality</div>
+        <table class="model-table">
+          <thead><tr><th>Old model: single-entity regulation</th><th>New reality: multi-party AI-era booking</th></tr></thead>
+          <tbody>
+            <tr><td>One licensed travel agency</td><td>AI orchestration agent</td></tr>
+            <tr><td>One package, assembled in advance</td><td>Itinerary assembled dynamically at booking</td></tr>
+            <tr><td>One jurisdiction</td><td>Multiple jurisdictions simultaneously</td></tr>
+            <tr><td>One responsible party</td><td>Hotel + ski school + taxi + guide + protocol</td></tr>
+            <tr><td>Liability: clear (the organiser)</td><td>Liability: unclear — no single organiser exists</td></tr>
+            <tr><td>Disruption: rare, handled by organiser</td><td>Disruption: may be geopolitical or natural disaster — beyond any single business</td></tr>
+            <tr><td>Regulation: designed for this</td><td>Regulation: not designed for any of this</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>The protocol as accountability infrastructure</h2>
+      <p>Both gaps share the same underlying problem: the accountability infrastructure that consumer protection law was designed to enforce is simply not visible to regulators under current frameworks.</p>
+
+      <div class="pullquote">The question is not whether AI agents should be allowed to book travel. They already are. The question is whether the regulatory framework can see what they are doing — and whether it can reach them when things go catastrophically wrong.</div>
+
+      <p>The Activity Travel Protocol addresses this directly. Its Booking Object maintains a documented, machine-readable record of every state transition, every duty of care transfer, every supplier handoff, from the moment a traveller's request is received to the moment they arrive home safely. Its Human Escalation Manager architecture ensures that a qualified human is in the loop at every decision point that has significant welfare consequences.</p>
+      <p>But the protocol's architecture was also designed with the catastrophic scenario in mind. The same Booking Object that tracks a ski weekend in Nagano can, in a mass disruption event, become the data source that tells an emergency coordination authority: how many travellers are in the affected area, which suppliers hold duty of care over them, which travellers are uncontactable, and which have already been safely evacuated.</p>
+
+      <h2>Three reform directions</h2>
+
+      <div class="diagram-block">
+        <div class="diagram-label">Diagram — Three directions for reform</div>
+        <div class="direction-grid">
+          <div class="direction-card"><strong>1. Encourage open technical standards</strong><p>Regulators signal that cross-border interoperability matters and encourage industry to converge on open standards — as ICAO and IATA did for aviation.</p></div>
+          <div class="direction-card"><strong>2. Government-led disruption coordination</strong><p>When war, earthquake, or mass disruption strands travellers at scale, governments need a shared protocol to coordinate. Industry alone cannot build this.</p></div>
+          <div class="direction-card"><strong>3. Cross-border interoperability</strong><p>If the industry widely adopts a common technical standard, most cross-border regulatory friction resolves through interoperability. Conformance testing — not certification — validates compatibility.</p></div>
+        </div>
+      </div>
+
+      <p>The Activity Travel Protocol is a working reference implementation of the infrastructure all three directions require. It was designed from the ground up to make the AI-era booking visible, accountable, and auditable — not just to the parties involved, but to the regulatory authorities and governments who need to reach travellers when it matters most.</p>
+
+      <div class="pullquote">The Activity Travel Protocol is not asking regulators to trust AI booking systems. It is giving regulators — and governments — the tools to find their citizens when the world goes wrong.</div>
+    </div>
+    <div class="spec-links">
+      <div class="spec-links-label">Read more in the specification</div>
+      <ul>
+        <li><a href="https://activitytravel.pro/spec/jurisdiction-compliance-spec">Jurisdiction Compliance Specification</a></li>
+        <li><a href="https://activitytravel.pro/spec/jurisdiction-entries">Jurisdiction Entries</a></li>
+        <li><a href="https://activitytravel.pro/layer3/">Layer 3 Workflow — Duty of Care and TRAVELER_UNREACHABLE chains</a></li>
+      </ul>
+    </div>
+    <nav class="post-nav" aria-label="Post navigation">
+      <div class="post-nav-prev"><div class="post-nav-label">Previous</div><a class="post-nav-title" href="./bp-04.html">For government regulators: what the Activity Travel Protocol enables</a></div>
+      <div class="post-nav-next"><div class="post-nav-label">Next</div><a class="post-nav-title" href="./bp-18.html">What does regulatory reform for AI-era travel actually look like?</a></div>
+    </nav>
+  </article>
+  <footer>
+    <div class="footer-left">Apache 2.0 &nbsp;·&nbsp; Founded by <a href="https://myauberge.com">MyAuberge K.K.</a> &nbsp;·&nbsp; <a href="https://activitytravel.pro">activitytravel.pro</a></div>
+    <div class="footer-right"><a href="https://activitytravel.org/#subscribe">Subscribe</a><a href="https://activitytravel.pro">Specification</a><a href="https://github.com/activity-travel-protocol/protocol-spec">GitHub</a><a href="https://activitytravel.org/#contact">Contact</a></div>
+  </footer>
+</body>
+</html>

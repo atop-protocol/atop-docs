@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The open protocol for the AI travel era — Activity Travel Protocol</title>
+  <meta name="description" content="The common language for the complete travel booking lifecycle is now published. What interoperability actually means for travellers, suppliers, OTAs, and regulators." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:          #0f1a14;
+      --ink-mid:      #2e4038;
+      --ink-light:    #5a7266;
+      --ink-faint:    #94aaa0;
+      --paper:        #f5f2eb;
+      --paper-dark:   #ede9e0;
+      --accent:       #1e6b45;
+      --accent-light: #2e8f5c;
+      --rule:         #d4cfc4;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans:  'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--paper);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 60px;
+    }
+    .nav-brand {
+      font-family: var(--serif);
+      font-size: 15px;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-light);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a.nav-active { color: var(--ink); }
+    .nav-links a.nav-subscribe {
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 2px;
+      padding: 4px 12px;
+      font-size: 12px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-links a.nav-subscribe:hover { background: var(--accent); color: #fff; }
+
+    /* ARTICLE LAYOUT */
+    .article-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 72px 40px 96px;
+    }
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 40px;
+    }
+    .breadcrumb a {
+      color: var(--ink-faint);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb-sep { color: var(--rule); }
+
+    /* POST HEADER */
+    .post-header { margin-bottom: 48px; }
+
+    .post-arc {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 2px;
+      padding: 4px 10px;
+      margin-bottom: 24px;
+    }
+
+    .post-header h1 {
+      font-family: var(--serif);
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: 1.1;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding-top: 20px;
+      border-top: 1px solid var(--rule);
+    }
+    .post-date {
+      font-size: 13px;
+      color: var(--ink-faint);
+    }
+    .post-audience-tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      background: var(--paper-dark);
+      border-radius: 2px;
+      padding: 3px 8px;
+    }
+
+    /* AUTHOR */
+    .post-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 48px;
+    }
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: var(--serif);
+      font-size: 16px;
+      color: #fff;
+      letter-spacing: 0.01em;
+    }
+    .author-info { display: flex; flex-direction: column; gap: 2px; }
+    .author-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .author-role {
+      font-size: 12px;
+      color: var(--ink-faint);
+    }
+    .author-contact {
+      font-size: 12px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .author-contact:hover { text-decoration: underline; }
+
+    /* POST BODY */
+    .post-body { font-size: 17px; line-height: 1.8; color: var(--ink-mid); }
+
+    .post-body h2 {
+      font-family: var(--serif);
+      font-size: 26px;
+      line-height: 1.2;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      margin: 56px 0 20px;
+    }
+
+    .post-body p { margin-bottom: 24px; }
+    .post-body p:last-child { margin-bottom: 0; }
+
+    /* DIAGRAM BLOCK */
+    .diagram-block {
+      background: #e8e3d8;
+      border: 1px solid #b8b2a6;
+      border-radius: 4px;
+      padding: 32px;
+      margin: 40px 0;
+    }
+    .diagram-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 20px;
+    }
+
+    /* FOUR-AUDIENCE TABLE */
+    .audience-table { width: 100%; border-collapse: collapse; }
+    .audience-table thead tr { border-bottom: 2px solid #b8b2a6; }
+    .audience-table th {
+      padding: 10px 14px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: left;
+    }
+    .audience-table th:first-child { color: var(--ink-light); width: 120px; }
+    .audience-table th:nth-child(2) { color: var(--ink-light); }
+    .audience-table th:last-child { color: var(--accent); }
+    .audience-table td {
+      padding: 16px 14px;
+      font-size: 14px;
+      font-weight: 400;
+      vertical-align: top;
+      line-height: 1.65;
+      border-bottom: 1px solid #c8c2b6;
+      color: var(--ink-mid);
+    }
+    .audience-table td:first-child {
+      font-weight: 500;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .audience-table td:nth-child(2) {
+      color: var(--ink-light);
+    }
+    .audience-table td:last-child {
+      color: var(--ink);
+      background: #dff0e8;
+    }
+    .audience-table tr:last-child td { border-bottom: none; }
+
+    /* SPEC LINKS */
+    .spec-links {
+      margin: 48px 0;
+      padding: 28px 32px;
+      background: var(--paper-dark);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+    }
+    .spec-links-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .spec-links ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .spec-links a {
+      font-size: 14px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 400;
+    }
+    .spec-links a:hover { text-decoration: underline; }
+    .spec-links a::before { content: '→ '; }
+
+    /* POST NAV */
+    .post-nav {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      margin-top: 64px;
+      padding-top: 40px;
+      border-top: 1px solid var(--rule);
+    }
+    .post-nav-next { text-align: right; max-width: 360px; }
+    .post-nav-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 8px;
+    }
+    .post-nav-title {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: var(--ink);
+      text-decoration: none;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      display: block;
+      transition: color 0.2s;
+    }
+    .post-nav-title:hover { color: var(--accent); }
+    .post-nav-title::after { content: ' →'; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 28px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-left { font-size: 13px; color: var(--ink-faint); }
+    .footer-left a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .footer-left a:hover { color: var(--ink-light); }
+    .footer-right { display: flex; gap: 24px; }
+    .footer-right a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .footer-right a:hover { color: var(--ink-light); }
+
+    /* RESPONSIVE */
+    @media (max-width: 680px) {
+      nav { padding: 0 20px; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 11px; }
+      .article-wrap { padding: 48px 24px 72px; }
+      .audience-table td:first-child { white-space: normal; }
+      .post-nav { flex-direction: column; }
+      .post-nav-next { text-align: left; max-width: 100%; }
+      footer { padding: 24px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-brand" href="https://activitytravel.org/">Activity Travel Protocol</a>
+    <ul class="nav-links">
+      <li><a href="/blog/" class="nav-active">Blog</a></li>
+      <li><a href="https://activitytravel.pro">Specification</a></li>
+      <li><a href="https://github.com/activity-travel-protocol/protocol-spec">GitHub</a></li>
+      <li><a href="https://activitytravel.org/#contact">Contact</a></li>
+      <li><a href="https://activitytravel.org/#subscribe" class="nav-subscribe">Subscribe</a></li>
+    </ul>
+  </nav>
+
+  <article class="article-wrap">
+
+    <div class="breadcrumb">
+      <a href="/blog/">Blog</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Arc 1 — The Problem and the Protocol</span>
+    </div>
+
+    <header class="post-header">
+      <span class="post-arc">Arc 1 — The Problem and the Protocol</span>
+      <h1>The open protocol for the AI travel era</h1>
+      <div class="post-meta">
+        <span class="post-date">1 April 2026</span>
+        <span class="post-audience-tag">Travel industry press</span>
+      </div>
+    </header>
+
+    <div class="post-author">
+      <div class="author-avatar">TS</div>
+      <div class="author-info">
+        <span class="author-name">Tom Sato</span>
+        <span class="author-role">Founding Maintainer, Activity Travel Protocol</span>
+        <a class="author-contact" href="https://activitytravel.org/#contact">Contact →</a>
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      <h2>What good travel feels like</h2>
+
+      <p>Imagine your flight is delayed by four hours. Not cancelled — just delayed, but enough to miss your connection and arrive at your destination too late for the evening activity you booked months ago. In today's world, you spend those four hours on hold. One call to the airline. Another to the hotel to push the check-in. Another to the tour operator to ask about a refund. Another to the activity provider who has no record of your name because you booked through a third party.</p>
+
+      <p>Now imagine that none of those calls happen. The delay is registered. The booking adjusts. Your hotel is notified. The activity provider receives a rescheduling request. Your phone shows a single updated itinerary. You sit at the gate and read.</p>
+
+      <p>That second experience is not science fiction. It is what travel looks like when the whole industry shares a common language — when a hotel, an airline, an activity provider, and the AI agent managing your trip can all read the same booking record and act on it together.</p>
+
+      <p>That common language now exists. It is called the Activity Travel Protocol.</p>
+
+      <h2>Why the industry never had this before</h2>
+
+      <p>The travel industry is not short of technology. What it has always lacked is interoperability — the ability for different systems, run by different companies in different countries, to share a single coherent picture of a booking.</p>
+
+      <p>Airlines solved their slice of this decades ago. Hotels made progress with shared data schemas. But activities — the ski schools, the local guides, the cultural experiences, the transfers, the things that make a destination worth visiting — were never part of any common standard. And no standard ever covered the complete journey: from the moment a traveller expresses an interest to the moment they return home safely.</p>
+
+      <p>The arrival of AI agents has made this gap urgent. AI travel assistants are already in market. They can search. They can recommend. They can, in simple cases, book. But when the itinerary becomes complex — multiple suppliers, multiple jurisdictions, real-time disruption — the AI hits a wall. Not because the AI is not capable enough. Because the infrastructure behind it was never built for this.</p>
+
+      <p>The question the industry has been avoiding is simple: who builds the shared foundation? Not a feature. Not an API. A genuine open standard — neutral, governed by no single commercial interest, available to every party in the chain on equal terms.</p>
+
+      <h2>What the Activity Travel Protocol is</h2>
+
+      <p>The Activity Travel Protocol is an open standard for the complete travel booking lifecycle. Every party in a booking — hotel, activity supplier, transport operator, OTA, AI agent, traveller — works from a shared runtime record called the Booking Object. It tracks the state of the booking, who holds responsibility for the traveller at each moment, and what every AI agent in the chain is and is not permitted to do.</p>
+
+      <p>When something changes — a flight delay, a supplier cancellation, a traveller who cannot be reached — the protocol propagates the change across every affected party simultaneously. No one is waiting for a phone call. No one is working from a different version of the truth.</p>
+
+      <p>It is built on four layers: identity and trust, discovery and capability, workflow, and the developer SDK. The full specification is published and live. The licence is Apache 2.0 — open governance, no single owner, free for any company to implement.</p>
+
+      <p>The protocol is not competing with existing standards. NDC for airlines and OpenTravel for hotel data continue to do what they do. The Activity Travel Protocol is the layer that connects them — and extends the picture to cover everything those standards were never designed to handle.</p>
+
+      <h2>What interoperability means in practice</h2>
+
+      <div class="diagram-block">
+        <div class="diagram-label">Diagram — What interoperability means for each audience</div>
+        <table class="audience-table">
+          <thead>
+            <tr>
+              <th>For…</th>
+              <th>Today</th>
+              <th>With the Activity Travel Protocol</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Travellers</td>
+              <td>Stranded at a gate, calling suppliers who cannot see each other. Personally managing every change across a chain that was never designed to talk.</td>
+              <td>One booking record, shared across every supplier in real time. When something changes, the chain adjusts. The traveller is informed, not managing.</td>
+            </tr>
+            <tr>
+              <td>Hotels and activity suppliers</td>
+              <td>Separate systems, separate APIs, separate conversations with every distribution partner. Coordination by phone and email when things go wrong.</td>
+              <td>One structured profile, readable by every platform that implements the protocol. Disruption notifications arrive automatically. No manual coordination.</td>
+            </tr>
+            <tr>
+              <td>OTAs and platforms</td>
+              <td>Custom integrations for every supplier category, in every market. Growing maintenance burden as the activity catalogue expands.</td>
+              <td>One protocol integration, every supplier in the network. AI-powered itinerary assembly without rebuilding the supplier layer from scratch.</td>
+            </tr>
+            <tr>
+              <td>Regulators</td>
+              <td>Liability chains reconstructed after the fact from email threads and PDF contracts. No real-time record of who was responsible for a traveller.</td>
+              <td>A timestamped, machine-readable duty of care record in every booking. Accountability is maintained in real time, not reconstructed after an incident.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>What interoperability actually changes</h2>
+
+      <p>Interoperability is not a technical achievement. It is a commercial and human one.</p>
+
+      <p>For travellers, it means someone is always formally responsible for their welfare — tracked in real time, not reconstructed after an incident from email threads and PDF contracts. It means that when things go wrong, the system handles it. Not because someone made a phone call, but because the protocol already knows what to do.</p>
+
+      <p>For the industry, it means the network effect finally works in everyone's favour. A small activity provider in a regional destination publishes one structured profile and becomes discoverable by every platform that implements the protocol. A major OTA builds one integration and accesses every supplier in the network. The bilateral integration burden — the N×M matrix of custom connections that currently makes activity booking so expensive to scale — collapses.</p>
+
+      <p>For regulators, it means that the accountability chain for AI-mediated travel is no longer invisible. Every AI agent holds a declared, verified authority scope. Every duty of care transfer is timestamped. The compliance record exists before it is needed, not after.</p>
+
+      <p>The travel industry has always been good at relationships. Hotels know their suppliers. Tour operators know their guides. OTAs know their hotel partners. What has been missing is the shared infrastructure that makes those relationships machine-readable, scalable, and resilient when something goes wrong.</p>
+
+      <p>The Activity Travel Protocol is that infrastructure. It does not change the relationships. It gives them a common language.</p>
+
+      <p>The specification is live at activitytravel.pro. The conversation about what gets built on it starts now.</p>
+
+    </div><!-- /post-body -->
+
+    <div class="spec-links">
+      <div class="spec-links-label">Read more in the specification</div>
+      <ul>
+        <li><a href="https://activitytravel.pro">Full protocol specification — activitytravel.pro</a></li>
+      </ul>
+    </div>
+
+    <nav class="post-nav" aria-label="Post navigation">
+      <div class="post-nav-next">
+        <div class="post-nav-label">Next</div>
+        <a class="post-nav-title" href="./bp-01.html">What is the Activity Travel Protocol?</a>
+      </div>
+    </nav>
+
+  </article>
+
+  <footer>
+    <div class="footer-left">
+      Apache 2.0 &nbsp;·&nbsp; Founded by <a href="https://myauberge.com">MyAuberge K.K.</a> &nbsp;·&nbsp; <a href="https://activitytravel.pro">activitytravel.pro</a>
+    </div>
+    <div class="footer-right">
+      <a href="https://activitytravel.org/#subscribe">Subscribe</a>
+      <a href="https://activitytravel.pro">Specification</a>
+      <a href="https://github.com/activity-travel-protocol/protocol-spec">GitHub</a>
+      <a href="https://activitytravel.org/#contact">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>

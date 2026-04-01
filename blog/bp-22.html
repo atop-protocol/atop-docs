@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>One extended meeting, five cities, one very long day — Activity Travel Protocol</title>
+  <meta name="description" content="The decision to extend an Istanbul trip by two days took five minutes. Implementing it took a full working day. The protocol changes that."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--ink:#0f1a14;--ink-mid:#2e4038;--ink-light:#5a7266;--ink-faint:#94aaa0;--paper:#f5f2eb;--paper-dark:#ede9e0;--accent:#1e6b45;--rule:#d4cfc4;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;}
+    html{scroll-behavior:smooth;}body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+    nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:60px;}
+    .nav-brand{font-family:var(--serif);font-size:15px;color:var(--ink);text-decoration:none;}.nav-links{display:flex;gap:32px;list-style:none;}.nav-links a{font-size:13px;font-weight:500;color:var(--ink-light);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;transition:color 0.2s;}.nav-links a:hover{color:var(--accent);}.nav-links a.nav-active{color:var(--ink);}.nav-links a.nav-subscribe{color:var(--accent);border:1px solid var(--accent);border-radius:2px;padding:4px 12px;font-size:12px;}.nav-links a.nav-subscribe:hover{background:var(--accent);color:#fff;}
+    .article-wrap{max-width:720px;margin:0 auto;padding:72px 40px 96px;}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:40px;}.breadcrumb a{color:var(--ink-faint);text-decoration:none;}.breadcrumb a:hover{color:var(--accent);}.breadcrumb-sep{color:var(--rule);}
+    .post-header{margin-bottom:48px;}.post-arc{display:inline-block;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:2px;padding:4px 10px;margin-bottom:24px;}.post-header h1{font-family:var(--serif);font-size:clamp(32px,5vw,48px);line-height:1.1;color:var(--ink);letter-spacing:-0.02em;margin-bottom:20px;}
+    .post-meta{display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--rule);}.post-date{font-size:13px;color:var(--ink-faint);}.post-audience-tag{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);background:var(--paper-dark);border-radius:2px;padding:3px 8px;}
+    .post-author{display:flex;align-items:center;gap:14px;padding:20px 0;border-bottom:1px solid var(--rule);margin-bottom:48px;}.author-avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--serif);font-size:16px;color:#fff;}.author-info{display:flex;flex-direction:column;gap:2px;}.author-name{font-size:14px;font-weight:500;color:var(--ink);}.author-role{font-size:12px;color:var(--ink-faint);}.author-contact{font-size:12px;color:var(--accent);text-decoration:none;}.author-contact:hover{text-decoration:underline;}
+    .post-body{font-size:17px;line-height:1.8;color:var(--ink-mid);}.post-body h2{font-family:var(--serif);font-size:26px;line-height:1.2;color:var(--ink);letter-spacing:-0.01em;margin:56px 0 20px;}.post-body h3{font-size:17px;font-weight:500;color:var(--ink);margin:36px 0 14px;}.post-body p{margin-bottom:24px;}.post-body p:last-child{margin-bottom:0;}
+    .pullquote{border-left:3px solid var(--accent);margin:40px 0;padding:20px 24px;background:#e8e3d8;font-family:var(--serif);font-size:20px;line-height:1.4;color:var(--ink);font-style:italic;}
+    .diagram-block{background:#e8e3d8;border:1px solid #b8b2a6;border-radius:4px;padding:32px;margin:40px 0;}.diagram-label{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-light);margin-bottom:20px;}.diagram-caption{font-size:13px;font-weight:300;color:var(--ink-light);font-style:italic;margin-top:16px;}
+    /* Booking object cascade diagram */
+    .bo-diagram{width:100%;overflow-x:auto;}
+    .bo-row{display:grid;grid-template-columns:100px repeat(5,1fr);gap:4px;margin-bottom:4px;align-items:stretch;}
+    .bo-row-label{font-size:11px;font-weight:500;color:var(--ink);display:flex;align-items:center;padding-right:8px;}
+    .bo-cell{padding:10px 8px;font-size:11px;line-height:1.4;text-align:center;border-radius:2px;background:#d8d2c6;color:var(--ink-mid);}
+    .bo-cell.active{background:#dff0e8;color:var(--ink);font-weight:500;}
+    .bo-cell.suspended{background:var(--accent);color:#fff;font-weight:500;}
+    .bo-cell.modified{background:#b8d8c4;color:var(--ink);}
+    .bo-header{font-size:10px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-light);background:transparent;padding:4px 8px;}
+    /* AgentAuthorityDeclaration spectrum */
+    .aad-spectrum{display:flex;gap:4px;align-items:stretch;margin:8px 0;}
+    .aad-level{flex:1;border-radius:2px;padding:12px 8px;text-align:center;}
+    .aad-level-label{font-size:12px;font-weight:700;color:var(--ink);display:block;margin-bottom:4px;}
+    .aad-level-name{font-size:11px;font-weight:500;color:var(--ink-mid);display:block;margin-bottom:6px;}
+    .aad-level-desc{font-size:11px;color:var(--ink-light);line-height:1.4;}
+    .aad-level.l0{background:#e0dbd2;}
+    .aad-level.l1{background:#d8d2c6;}
+    .aad-level.l2{background:#c8ded0;}
+    .aad-level.l3{background:#dff0e8;}
+    .aad-gate{width:3px;background:var(--ink);border-radius:1px;display:flex;align-items:center;justify-content:center;position:relative;}
+    .aad-gate-label{font-size:9px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:#fff;background:var(--ink);padding:3px 5px;border-radius:2px;writing-mode:vertical-rl;white-space:nowrap;}
+    .spec-links{margin:48px 0;padding:28px 32px;background:var(--paper-dark);border:1px solid var(--rule);border-radius:4px;}.spec-links-label{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px;}.spec-links ul{list-style:none;display:flex;flex-direction:column;gap:8px;}.spec-links a{font-size:14px;color:var(--accent);text-decoration:none;}.spec-links a:hover{text-decoration:underline;}.spec-links a::before{content:'→ ';}
+    .post-nav{display:flex;justify-content:space-between;margin-top:64px;padding-top:40px;border-top:1px solid var(--rule);}.post-nav-prev{text-align:left;max-width:300px;}.post-nav-next{text-align:right;max-width:300px;}.post-nav-label{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;}.post-nav-title{font-family:var(--serif);font-size:17px;color:var(--ink);text-decoration:none;line-height:1.3;display:block;transition:color 0.2s;}.post-nav-title:hover{color:var(--accent);}.post-nav-next .post-nav-title::after{content:' →';}.post-nav-prev .post-nav-title::before{content:'← ';}
+    footer{border-top:1px solid var(--rule);padding:28px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}.footer-left{font-size:13px;color:var(--ink-faint);}.footer-left a{color:var(--ink-faint);text-decoration:none;}.footer-right{display:flex;gap:24px;}.footer-right a{font-size:13px;color:var(--ink-faint);text-decoration:none;}.footer-right a:hover{color:var(--ink-light);}
+    @media(max-width:680px){nav{padding:0 20px;}.nav-links{gap:16px;}.nav-links a{font-size:11px;}.article-wrap{padding:48px 24px 72px;}.aad-spectrum{flex-direction:column;}.aad-gate{width:100%;height:3px;}.aad-gate-label{writing-mode:horizontal-tb;}.post-nav{flex-direction:column;gap:24px;}.post-nav-next,.post-nav-prev{max-width:100%;text-align:left;}footer{padding:24px;flex-direction:column;align-items:flex-start;}}
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-brand" href="https://activitytravel.org/">Activity Travel Protocol</a>
+    <ul class="nav-links">
+      <li><a href="/blog/" class="nav-active">Blog</a></li>
+      <li><a href="https://activitytravel.pro">Specification</a></li>
+      <li><a href="https://github.com/activity-travel-protocol/protocol-spec">GitHub</a></li>
+      <li><a href="https://activitytravel.org/#contact">Contact</a></li>
+      <li><a href="https://activitytravel.org/#subscribe" class="nav-subscribe">Subscribe</a></li>
+    </ul>
+  </nav>
+  <article class="article-wrap">
+    <div class="breadcrumb"><a href="/blog/">Blog</a><span class="breadcrumb-sep">›</span><span>Arc 2 — Business Cases by Sector</span></div>
+    <header class="post-header">
+      <span class="post-arc">Arc 2 — Business Cases by Sector</span>
+      <h1>One extended meeting, five cities, one very long day</h1>
+      <div class="post-meta">
+        <span class="post-date">1 April 2026</span>
+        <span class="post-audience-tag">Business travellers · Corporate travel managers · Airlines</span>
+      </div>
+    </header>
+    <div class="post-author">
+      <div class="author-avatar">TS</div>
+      <div class="author-info">
+        <span class="author-name">Tom Sato</span>
+        <span class="author-role">Founding Maintainer, Activity Travel Protocol</span>
+        <a class="author-contact" href="https://activitytravel.org/#contact">Contact →</a>
+      </div>
+    </div>
+    <div class="post-body">
+      <h2>The decision that took five minutes</h2>
+      <p>A business traveller is midway through a multi-city trip. The itinerary looks clean on paper: Narita to Istanbul, Istanbul to Dubai, Dubai to Colombo, Colombo back to Narita. Four segments, two weeks, a coherent route through three time zones. Then, midway through the Istanbul meetings, the agenda expands. Two more days are needed. The decision takes five minutes.</p>
+      <p>What follows takes a full working day.</p>
+      <p>Two airlines, each with separate booking systems and separate rebooking policies. Hotels in Dubai and Colombo that need their check-in dates shifted. A connecting flight out of Dubai that no longer makes sense given the new Istanbul departure. Every call leads to another call. The airline confirms the flight change but cannot see the hotel. The hotel confirms the date shift but cannot see the connecting flight. By the time the last piece lands, eight hours have passed. The traveller has spent a full working day being the integration layer between systems that cannot see each other.</p>
+
+      <h2>A structural problem, not a service problem</h2>
+      <p>This is not a story about unhelpful airline agents or unresponsive hotels. Every person in that chain did their job correctly. The problem is structural: each system can see only its own piece of the booking. The airline sees a flight. The hotel sees a reservation. No system has a shared view of the itinerary as a whole.</p>
+      <p>Which means no system can propagate a change decision across the chain. When the Istanbul extension is decided, there is no mechanism to say: here is what has changed, here is what needs to follow, here is who needs to act and in what order. The traveller becomes the only entity who holds the complete picture — and so the traveller becomes the integration layer, manually phoning, confirming, and reconciling across five cities.</p>
+      <p>This is not an edge case. Every business traveller who has ever extended a trip, missed a connection, or changed a return flight has been through some version of it. It is the normal case. And current travel infrastructure has no answer to it.</p>
+
+      <div class="pullquote">The traveller is the only entity who holds the complete picture. So the traveller does the coordination — manually, across five cities.</div>
+
+      <h2>The itinerary as a single object</h2>
+      <p>The Activity Travel Protocol approaches this differently. The entire itinerary — air segments, hotel components, transfers — is represented as a single Booking Object. Each component has its own state and its own Duty of Care assignment, but all are connected under one shared record. When anything changes, the change propagates through the object. The systems do not need to call each other. The protocol handles coordination.</p>
+      <p>When the Istanbul extension decision is made, an AI agent operating under a declared authority scope — an AgentAuthorityDeclaration that specifies exactly what it can do without human approval — propagates the change. The Dubai and Colombo hotel components are shifted; suppliers notified automatically within the modification window defined when the booking was made. The affected flight segments enter BOOKING_SUSPENDED — a defined protocol state that opens a structured modification window with each airline without cancelling the booking. Downstream suppliers are notified in the correct dependency order. Decisions that exceed the agent's declared authority scope — a rebooking involving a significant fare difference — are escalated to the Human Escalation Manager. The traveller approves that one decision. Everything else resolves automatically.</p>
+
+      <div class="diagram-block">
+        <div class="diagram-label">Diagram 1 — The five-city Booking Object: Istanbul extension cascade</div>
+        <div class="bo-diagram">
+          <div class="bo-row">
+            <div class="bo-cell bo-header"></div>
+            <div class="bo-cell bo-header">Narita→Istanbul</div>
+            <div class="bo-cell bo-header">Istanbul</div>
+            <div class="bo-cell bo-header">Dubai</div>
+            <div class="bo-cell bo-header">Colombo</div>
+            <div class="bo-cell bo-header">Return</div>
+          </div>
+          <div class="bo-row">
+            <div class="bo-row-label">Before extension</div>
+            <div class="bo-cell active">Confirmed</div>
+            <div class="bo-cell active">Hotel confirmed</div>
+            <div class="bo-cell active">Hotel confirmed</div>
+            <div class="bo-cell active">Hotel confirmed</div>
+            <div class="bo-cell active">Flight confirmed</div>
+          </div>
+          <div class="bo-row">
+            <div class="bo-row-label">Extension decision</div>
+            <div class="bo-cell active">No change</div>
+            <div class="bo-cell modified">+2 days (agent acts)</div>
+            <div class="bo-cell suspended">BOOKING_SUSPENDED</div>
+            <div class="bo-cell suspended">BOOKING_SUSPENDED</div>
+            <div class="bo-cell suspended">BOOKING_SUSPENDED</div>
+          </div>
+          <div class="bo-row">
+            <div class="bo-row-label">After resolution</div>
+            <div class="bo-cell active">No change</div>
+            <div class="bo-cell active">Extended &amp; confirmed</div>
+            <div class="bo-cell active">Shifted &amp; confirmed</div>
+            <div class="bo-cell active">Shifted &amp; confirmed</div>
+            <div class="bo-cell active">Rebooked (1 human approval)</div>
+          </div>
+        </div>
+        <div class="diagram-caption">BOOKING_SUSPENDED opens a structured modification window with each supplier — no cancellation, no manual calls. One human approval for the fare-difference escalation.</div>
+      </div>
+
+      <div class="diagram-block">
+        <div class="diagram-label">Diagram 2 — AgentAuthorityDeclaration: what the AI can do, and when it escalates</div>
+        <div class="aad-spectrum">
+          <div class="aad-level l0"><span class="aad-level-label">L0</span><span class="aad-level-name">Read-only</span><span class="aad-level-desc">Reads Booking Object. Produces options. No changes.</span></div>
+          <div class="aad-level l1"><span class="aad-level-label">L1</span><span class="aad-level-name">Approved</span><span class="aad-level-desc">Proposes changes. Human approves each one before execution.</span></div>
+          <div class="aad-gate"><span class="aad-gate-label">CONFIRMATION</span></div>
+          <div class="aad-level l2"><span class="aad-level-label">L2</span><span class="aad-level-name">Delegated</span><span class="aad-level-desc">Acts autonomously within declared scope. Escalates outside it.</span></div>
+          <div class="aad-level l3"><span class="aad-level-label">L3</span><span class="aad-level-name">Autonomous</span><span class="aad-level-desc">Full authority within scope. HEM escalation for welfare-consequential decisions.</span></div>
+        </div>
+        <div class="diagram-caption">The Istanbul extension — shifting hotel dates, opening BOOKING_SUSPENDED windows — falls within L2 delegated authority. The fare-difference rebooking exceeds declared scope and escalates to Human Escalation Manager.</div>
+      </div>
+
+      <h2>What makes the protocol different</h2>
+      <p>Two elements make this possible. The first is the Booking Object itself — a shared, structured record of the entire itinerary that every party can read and act on, governed by a defined state machine that specifies exactly what can happen at each point and who needs to authorise it. The second is the AgentAuthorityDeclaration — the credential that defines what the AI agent is permitted to do autonomously, what requires human approval, and what is outside scope entirely. The Security Kernel enforces the declaration at every state transition.</p>
+      <p>For itineraries that span multiple airlines — each with their own booking systems and rebooking policies — the protocol uses an NDC bridge architecture to represent air components as first-class Booking Object elements. The airlines do not need to see each other's systems. The protocol holds the shared state.</p>
+
+      <h2>The normal case, finally handled</h2>
+      <p>For corporate travel managers, this means a measurable reduction in the time and cost of itinerary disruption — every extended meeting, every weather delay, every missed connection handled through structured protocol rather than manual coordination. For OTAs building the next generation of AI travel assistants, it is the infrastructure layer that makes autonomous itinerary management possible without creating unverifiable liability chains. For the traveller, it is simpler than all of that: the decision that took five minutes should not take a day to implement.</p>
+
+      <div class="pullquote">The decision that took five minutes should not take a day to implement. That is the problem the protocol solves.</div>
+    </div>
+    <div class="spec-links">
+      <div class="spec-links-label">Read more in the specification</div>
+      <ul>
+        <li><a href="https://activitytravel.pro/layer3/">BOOKING_SUSPENDED, AgentAuthorityDeclaration, Human Escalation Manager — activitytravel.pro/layer3/</a></li>
+        <li><a href="https://activitytravel.pro/layer2/">NDC bridge, Booking Object component model — activitytravel.pro/layer2/</a></li>
+      </ul>
+    </div>
+    <nav class="post-nav" aria-label="Post navigation">
+      <div class="post-nav-prev"><div class="post-nav-label">Previous</div><a class="post-nav-title" href="./bp-07.html">Why every major OTA will need to support AI agent bookings</a></div>
+      <div class="post-nav-next"><div class="post-nav-label">Next</div><a class="post-nav-title" href="./bp-16.html">What the Activity Travel Protocol means for travel insurance</a></div>
+    </nav>
+  </article>
+  <footer>
+    <div class="footer-left">Apache 2.0 &nbsp;·&nbsp; Founded by <a href="https://myauberge.com">MyAuberge K.K.</a> &nbsp;·&nbsp; <a href="https://activitytravel.pro">activitytravel.pro</a></div>
+    <div class="footer-right"><a href="https://activitytravel.org/#subscribe">Subscribe</a><a href="https://activitytravel.pro">Specification</a><a href="https://github.com/activity-travel-protocol/protocol-spec">GitHub</a><a href="https://activitytravel.org/#contact">Contact</a></div>
+  </footer>
+</body>
+</html>

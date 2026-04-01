@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Activity Travel Protocol</title>
+  <meta name="description" content="Perspectives on AI-native travel, protocol design, and the future of the travel industry — from the team behind the Activity Travel Protocol." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:          #0f1a14;
+      --ink-mid:      #2e4038;
+      --ink-light:    #5a7266;
+      --ink-faint:    #94aaa0;
+      --paper:        #f5f2eb;
+      --paper-dark:   #ede9e0;
+      --accent:       #1e6b45;
+      --accent-light: #2e8f5c;
+      --rule:         #d4cfc4;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans:  'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--paper);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 60px;
+    }
+    .nav-brand {
+      font-family: var(--serif);
+      font-size: 15px;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-light);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a.nav-active { color: var(--ink); }
+    .nav-links a.nav-subscribe {
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 2px;
+      padding: 4px 12px;
+      font-size: 12px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-links a.nav-subscribe:hover { background: var(--accent); color: #fff; }
+
+    /* HERO */
+    .hero {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 80px 40px 64px;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 2px;
+      padding: 4px 10px;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 52px);
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 em { font-style: italic; color: var(--accent); }
+    .hero-tagline {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      max-width: 560px;
+      line-height: 1.75;
+    }
+
+    /* SECTION RULE */
+    .section-rule { max-width: 960px; margin: 0 auto; padding: 0 40px; }
+    .section-rule hr { border: none; border-top: 1px solid var(--rule); }
+
+    /* MAIN CONTENT */
+    .content { max-width: 960px; margin: 0 auto; padding: 0 40px 96px; }
+
+    /* ARC BLOCK */
+    .arc-block { padding-top: 56px; }
+    .arc-block + .arc-block { border-top: 1px solid var(--rule); margin-top: 12px; }
+
+    .arc-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .arc-title {
+      font-family: var(--serif);
+      font-size: 24px;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+    .arc-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--ink-light);
+      max-width: 540px;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    /* TWO-COLUMN POST GRID */
+    .post-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .post-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--paper);
+      padding: 26px 28px 22px;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.15s;
+    }
+    .post-card:hover { background: var(--paper-dark); }
+
+    .post-date {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+
+    .post-title {
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+      transition: color 0.15s;
+    }
+    .post-card:hover .post-title { color: var(--accent); }
+
+    .post-desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink-light);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 20px;
+    }
+
+    .post-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .post-audience {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--ink-faint);
+      line-height: 1.4;
+    }
+
+    .post-read {
+      flex-shrink: 0;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .post-read::after { content: ' →'; }
+    .post-card:hover .post-read { text-decoration: underline; }
+
+    /* Arc 3 has 3 posts — last card spans both columns */
+    .post-grid.arc3 .post-card:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      max-width: 50%;
+    }
+
+    /* ABOUT BLOCK */
+    .about-block {
+      margin-top: 64px;
+      padding-top: 48px;
+      border-top: 1px solid var(--rule);
+    }
+    .about-block p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--ink-light);
+      max-width: 560px;
+      line-height: 1.8;
+      margin-bottom: 10px;
+    }
+    .about-block a { color: var(--accent); text-decoration: none; }
+    .about-block a:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 28px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-left { font-size: 13px; color: var(--ink-faint); }
+    .footer-left a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .footer-left a:hover { color: var(--ink-light); }
+    .footer-right { display: flex; gap: 24px; }
+    .footer-right a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .footer-right a:hover { color: var(--ink-light); }
+
+    /* RESPONSIVE */
+    @media (max-width: 680px) {
+      nav { padding: 0 20px; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 11px; }
+      .hero, .content, .section-rule { padding-left: 24px; padding-right: 24px; }
+      .hero { padding-top: 56px; }
+      .post-grid { grid-template-columns: 1fr; }
+      .post-grid.arc3 .post-card:last-child:nth-child(odd) { grid-column: auto; max-width: 100%; }
+      footer { padding: 24px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-brand" href="https://activitytravel.org/">Activity Travel Protocol</a>
+    <ul class="nav-links">
+      <li><a href="/blog/" class="nav-active">Blog</a></li>
+      <li><a href="https://activitytravel.pro">Specification</a></li>
+      <li><a href="https://github.com/activity-travel-protocol/protocol-spec">GitHub</a></li>
+      <li><a href="https://activitytravel.org/#contact">Contact</a></li>
+      <li><a href="https://activitytravel.org/#subscribe" class="nav-subscribe">Subscribe</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <span class="hero-eyebrow">Blog</span>
+    <h1>Perspectives on<br /><em>AI-native travel</em></h1>
+    <p class="hero-tagline">Protocol design, policy, and the future of the travel industry — from the team behind the Activity Travel Protocol. Three arcs. Every post stands alone.</p>
+  </section>
+
+  <div class="section-rule"><hr /></div>
+
+  <div class="content">
+
+    <!-- ARC 1 -->
+    <div class="arc-block">
+      <p class="arc-eyebrow">The problem and the protocol</p>
+      <h2 class="arc-title">What is wrong with today's travel industry, and what the Activity Travel Protocol is</h2>
+      <p class="arc-desc">For general industry readers, OTAs, hotels, and anyone curious about AI in travel.</p>
+      <div class="post-grid">
+
+        <a class="post-card" href="./bp-01.html">
+          <div class="post-date">1 April 2026</div>
+          <div class="post-title">What is the Activity Travel Protocol?</div>
+          <div class="post-desc">The founding post. What the protocol is, what problem it solves, and why it matters now — interoperability, open standard, end-to-end itinerary, AI-enabled and safety-protected.</div>
+          <div class="post-footer">
+            <span class="post-audience">General audience</span>
+            <span class="post-read">Read</span>
+          </div>
+        </a>
+
+        <a class="post-card" href="./bp-02.html">
+          <div class="post-date">1 April 2026</div>
+          <div class="post-title">The Activity Travel Protocol and the global travel ecosystem</div>
+          <div class="post-desc">How the protocol fits into the existing global travel industry, and what it adds that Expedia, Booking.com, GetYourGuide, and Viator cannot provide.</div>
+          <div class="post-footer">
+            <span class="post-audience">OTAs · Aggregators · Tour operators</span>
+            <span class="post-read">Read</span>
+          </div>
+        </a>
+
+        <a class="post-card" href="./bp-03.html">
+          <div class="post-date">1 April 2026</div>
+          <div class="post-title">How does the Activity Travel Protocol fit into existing travel standards?</div>
+          <div class="post-desc">Where the protocol sits relative to NDC, OpenTravel Alliance, and IATA — and why a new layer was needed.</div>
+          <div class="post-footer">
+            <span class="post-audience">OTAs · Aggregators · Technology teams</span>
+            <span class="post-read">Read</span>
+          </div>
+        </a>
+
+        <a class="post-card" href="./bp-15.html">
+          <div class="post-date">1 April 2026</div>
+          <div class="post-title">The open protocol for the AI travel era</div>
+          <div class="post-desc">Big-picture framing for the industry: the AI travel era is arriving, and the infrastructure question is the one that matters most right now.</div>
+          <div class="post-footer">
+            <span class="post-audience">Travel industry press · Trade publications</span>
+            <span class="post-read">Read</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ARC 2 -->
+    <div class="arc-block">
+      <p class="arc-eyebrow">Business cases by sector</p>
+      <h2 class="arc-title">What the protocol does for specific parts of the travel industry</h2>
+      <p class="arc-desc">For hotels, OTAs, tour operators, activity providers, airlines, and insurers.</p>
+      <div class="post-grid">
+
+        <a class="post-card" href="./bp-06.html">
+          <div class="post-date">1 April 2026</div>
+          <div class="post-title">The travel agency of the AI era</div>
+          <div class="post-desc">What a travel agency looks like when AI agents do the assembling — and what role human expertise plays in the protocol's design.</div>
+          <div class="post-footer">
+            <span class="post-audience">Travel agents · OTAs · Tour operators</span>
+            <span class="post-read">Read</span>
+          </div>
+        </a>
+
+        <a class="post-card" href="./bp-07.html">
+          <div class="post-date">1 April 2026</div>
+          <div class="post-title">Why every major OTA will need to support AI agent bookings</div>
+          <div class="post-desc">The commercial case for OTA adoption. Open standard vs proprietary AI booking stacks — and why the open standard wins.</div>
+          <div class="post-footer">
+            <span class="post-audience">OTAs · Booking platforms</span>
+            <span class="post-read">Read</span>
+          </div>
+        </a>
+
+        <a class="post-card" href="./bp-08.html">
+          <div class="post-date">1 April 2026</div>
+          <div class="post-title">Hotels: the complete guest experience, finally possible</div>
+          <div class="post-desc">Hotels want to offer guests a complete experience — accommodation, activities, transfers, dining — but fragmented systems make it nearly impossible. The protocol changes that.</div>
+          <div class="post-footer">
+            <span class="post-audience">Hotels · Ryokans · Boutique properties</span>
+            <span class="post-read">Read</span>
+          </div>
+        </a>
+
+        <a class="post-card" href="./bp-09.html">
+          <div class="post-date">1 April 2026</div>
+          <div class="post-title">Duty of care: the concept that changes everything</div>
+          <div class="post-desc">No industry standard has ever made duty of care machine-readable, trackable in real time, and transferable between suppliers in a documented chain. Until now.</div>
+          <div class="post-footer">
+            <span class="post-audience">Hotels · Tour operators · Insurers · Regulators</span>
+            <span class="post-read">Read</span>
+          </div>
+        </a>
+
+        <a class="post-card" href="./bp-16.html">
+          <div class="post-date">1 April 2026</div>
+          <div class="post-title">What the Activity Travel Protocol means for travel insurance</div>
+          <div class="post-desc">A structured, machine-readable record of every supplier handoff, duty of care transfer, and disruption event — and what that means for how insurance is priced, triggered, and settled.</div>
+          <div class="post-footer">
+            <span class="post-audience">Insurance · Financial services · InsurTech</span>
+            <span class="post-read">Read</span>
+          </div>
+        </a>
+
+        <a class="post-card" href="./bp-17.html">
+          <div class="post-date">1 April 2026</div>
+          <div class="post-title">Small suppliers: how to participate in the AI travel economy</div>
+          <div class="post-desc">The protocol is designed for everyone, not just large platforms. What participation looks like for a small supplier, what they gain, and what is asked of them.</div>
+          <div class="post-footer">
+            <span class="post-audience">Solo guides · Dive shops · Local activity providers</span>
+            <span class="post-read">Read</span>
+          </div>
+        </a>
+
+        <a class="post-card" href="./bp-19.html">
+          <div class="post-date">1 April 2026</div>
+          <div class="post-title">The KPOP Musical and the Pre-Arrangement Declaration</div>
+          <div class="post-desc">A KPOP musical opening on Broadway. Fans from thirty countries. How the protocol's Pre-Arrangement Declaration makes large-scale fan travel manageable.</div>
+          <div class="post-footer">
+            <span class="post-audience">Entertainment producers · Hotels · Corporate travel</span>
+            <span class="post-read">Read</span>
+          </div>
+        </a>
+
+        <a class="post-card" href="./bp-22.html">
+          <div class="post-date">1 April 2026</div>
+          <div class="post-title">One extended meeting, five cities, one very long day</div>
+          <div class="post-desc">A business traveller extends their stay in Istanbul by two days. Four suppliers, two jurisdictions, a duty of care chain that needs to update in real time.</div>
+          <div class="post-footer">
+            <span class="post-audience">Business travellers · Corporate travel · Airlines</span>
+            <span class="post-read">Read</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ARC 3 -->
+    <div class="arc-block">
+      <p class="arc-eyebrow">Policy and regulation</p>
+      <h2 class="arc-title">Why regulators should care, and what reform looks like</h2>
+      <p class="arc-desc">For government bodies, policy makers, and travel industry press with regulatory interest.</p>
+      <div class="post-grid arc3">
+
+        <a class="post-card" href="./bp-04.html">
+          <div class="post-date">1 April 2026</div>
+          <div class="post-title">For government regulators: what the Activity Travel Protocol enables</div>
+          <div class="post-desc">Three things regulators currently lack: a real-time Trust Chain, a machine-readable Jurisdiction Compliance Registry, and booking-level data for mass disruption coordination.</div>
+          <div class="post-footer">
+            <span class="post-audience">Regulators · Policy makers · JTA · EU Commission · FTC · MLIT</span>
+            <span class="post-read">Read</span>
+          </div>
+        </a>
+
+        <a class="post-card" href="./bp-05.html">
+          <div class="post-date">1 April 2026</div>
+          <div class="post-title">The gap in travel regulation that no one has addressed yet</div>
+          <div class="post-desc">Existing travel regulation was written for single-entity products and predictable disruptions. The AI-era package holiday does not fit that model. This post names the gaps.</div>
+          <div class="post-footer">
+            <span class="post-audience">Regulators · Policy makers · Travel industry press</span>
+            <span class="post-read">Read</span>
+          </div>
+        </a>
+
+        <a class="post-card" href="./bp-18.html">
+          <div class="post-date">1 April 2026</div>
+          <div class="post-title">What does regulatory reform for AI-era travel actually look like?</div>
+          <div class="post-desc">Having named the structural problems, this post proposes the specific provisions that modernised travel regulation should contain — drawn from a systematic review across five jurisdictions.</div>
+          <div class="post-footer">
+            <span class="post-audience">Regulators · Policy makers · Trade press</span>
+            <span class="post-read">Read</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="about-block">
+      <p>The Activity Travel Protocol is an open protocol standard for the global travel industry. It enables the discovery, configuration, booking, fulfilment, and disruption management of complex travel experiences across multiple suppliers, jurisdictions, and AI agents.</p>
+      <p>The full specification is published at <a href="https://activitytravel.pro">activitytravel.pro</a>. Founded by <a href="https://myauberge.com">MyAuberge K.K.</a>, Chino, Nagano, Japan.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-left">
+      Apache 2.0 &nbsp;·&nbsp; Founded by <a href="https://myauberge.com">MyAuberge K.K.</a> &nbsp;·&nbsp; <a href="https://activitytravel.pro">activitytravel.pro</a>
+    </div>
+    <div class="footer-right">
+      <a href="https://activitytravel.org/#subscribe">Subscribe</a>
+      <a href="https://activitytravel.pro">Specification</a>
+      <a href="https://github.com/activity-travel-protocol/protocol-spec">GitHub</a>
+      <a href="https://activitytravel.org/#contact">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>

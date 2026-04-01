@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Small suppliers: how to participate in the AI travel economy — Activity Travel Protocol</title>
+  <meta name="description" content="One registration. The whole network. How solo guides, cooking class operators, and small activity providers can reach every AI booking agent simultaneously."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--ink:#0f1a14;--ink-mid:#2e4038;--ink-light:#5a7266;--ink-faint:#94aaa0;--paper:#f5f2eb;--paper-dark:#ede9e0;--accent:#1e6b45;--rule:#d4cfc4;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;}
+    html{scroll-behavior:smooth;}body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+    nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:60px;}
+    .nav-brand{font-family:var(--serif);font-size:15px;color:var(--ink);text-decoration:none;}.nav-links{display:flex;gap:32px;list-style:none;}.nav-links a{font-size:13px;font-weight:500;color:var(--ink-light);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;transition:color 0.2s;}.nav-links a:hover{color:var(--accent);}.nav-links a.nav-active{color:var(--ink);}.nav-links a.nav-subscribe{color:var(--accent);border:1px solid var(--accent);border-radius:2px;padding:4px 12px;font-size:12px;}.nav-links a.nav-subscribe:hover{background:var(--accent);color:#fff;}
+    .article-wrap{max-width:720px;margin:0 auto;padding:72px 40px 96px;}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:40px;}.breadcrumb a{color:var(--ink-faint);text-decoration:none;}.breadcrumb a:hover{color:var(--accent);}.breadcrumb-sep{color:var(--rule);}
+    .post-header{margin-bottom:48px;}.post-arc{display:inline-block;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:2px;padding:4px 10px;margin-bottom:24px;}.post-header h1{font-family:var(--serif);font-size:clamp(32px,5vw,48px);line-height:1.1;color:var(--ink);letter-spacing:-0.02em;margin-bottom:20px;}
+    .post-meta{display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--rule);}.post-date{font-size:13px;color:var(--ink-faint);}.post-audience-tag{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);background:var(--paper-dark);border-radius:2px;padding:3px 8px;}
+    .post-author{display:flex;align-items:center;gap:14px;padding:20px 0;border-bottom:1px solid var(--rule);margin-bottom:48px;}.author-avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--serif);font-size:16px;color:#fff;}.author-info{display:flex;flex-direction:column;gap:2px;}.author-name{font-size:14px;font-weight:500;color:var(--ink);}.author-role{font-size:12px;color:var(--ink-faint);}.author-contact{font-size:12px;color:var(--accent);text-decoration:none;}.author-contact:hover{text-decoration:underline;}
+    .post-body{font-size:17px;line-height:1.8;color:var(--ink-mid);}.post-body h2{font-family:var(--serif);font-size:26px;line-height:1.2;color:var(--ink);letter-spacing:-0.01em;margin:56px 0 20px;}.post-body h3{font-size:17px;font-weight:500;color:var(--ink);margin:36px 0 14px;}.post-body p{margin-bottom:24px;}.post-body p:last-child{margin-bottom:0;}
+    .pullquote{border-left:3px solid var(--accent);margin:40px 0;padding:20px 24px;background:#e8e3d8;font-family:var(--serif);font-size:20px;line-height:1.4;color:var(--ink);font-style:italic;}
+    .diagram-block{background:#e8e3d8;border:1px solid #b8b2a6;border-radius:4px;padding:32px;margin:40px 0;}.diagram-label{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-light);margin-bottom:20px;}.diagram-caption{font-size:13px;font-weight:300;color:var(--ink-light);font-style:italic;margin-top:16px;}
+    .path-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+    .path-col{background:#d8d2c6;border-radius:3px;padding:20px;}
+    .path-col.with-protocol{background:#dff0e8;}
+    .path-label{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px;color:var(--ink-light);}
+    .path-col.with-protocol .path-label{color:var(--accent);}
+    .path-step{font-size:13px;line-height:1.55;padding:8px 0;border-bottom:1px solid #c8c2b6;color:var(--ink-mid);}
+    .path-col.with-protocol .path-step{border-bottom-color:#b8d8c4;color:var(--ink);}
+    .path-step:last-child{border-bottom:none;}
+    .path-step strong{display:block;font-size:12px;font-weight:500;color:var(--ink);margin-bottom:2px;}
+    .mech-table{width:100%;border-collapse:collapse;}.mech-table thead tr{border-bottom:2px solid #b8b2a6;}.mech-table th{padding:10px 14px;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-align:left;color:var(--ink-light);}.mech-table td{padding:14px 14px;font-size:13px;font-weight:400;vertical-align:top;line-height:1.6;border-bottom:1px solid #c8c2b6;color:var(--ink-mid);}.mech-table td:first-child{font-weight:500;color:var(--ink);width:180px;}.mech-table td:last-child{background:#dff0e8;color:var(--ink);}.mech-table tr:last-child td{border-bottom:none;}
+    .spec-links{margin:48px 0;padding:28px 32px;background:var(--paper-dark);border:1px solid var(--rule);border-radius:4px;}.spec-links-label{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px;}.spec-links ul{list-style:none;display:flex;flex-direction:column;gap:8px;}.spec-links a{font-size:14px;color:var(--accent);text-decoration:none;}.spec-links a:hover{text-decoration:underline;}.spec-links a::before{content:'→ ';}
+    .post-nav{display:flex;justify-content:space-between;margin-top:64px;padding-top:40px;border-top:1px solid var(--rule);}.post-nav-prev{text-align:left;max-width:300px;}.post-nav-next{text-align:right;max-width:300px;}.post-nav-label{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;}.post-nav-title{font-family:var(--serif);font-size:17px;color:var(--ink);text-decoration:none;line-height:1.3;display:block;transition:color 0.2s;}.post-nav-title:hover{color:var(--accent);}.post-nav-next .post-nav-title::after{content:' →';}.post-nav-prev .post-nav-title::before{content:'← ';}
+    footer{border-top:1px solid var(--rule);padding:28px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}.footer-left{font-size:13px;color:var(--ink-faint);}.footer-left a{color:var(--ink-faint);text-decoration:none;}.footer-right{display:flex;gap:24px;}.footer-right a{font-size:13px;color:var(--ink-faint);text-decoration:none;}.footer-right a:hover{color:var(--ink-light);}
+    @media(max-width:680px){nav{padding:0 20px;}.nav-links{gap:16px;}.nav-links a{font-size:11px;}.article-wrap{padding:48px 24px 72px;}.path-grid{grid-template-columns:1fr;}.post-nav{flex-direction:column;gap:24px;}.post-nav-next,.post-nav-prev{max-width:100%;text-align:left;}footer{padding:24px;flex-direction:column;align-items:flex-start;}}
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-brand" href="https://activitytravel.org/">Activity Travel Protocol</a>
+    <ul class="nav-links">
+      <li><a href="/blog/" class="nav-active">Blog</a></li>
+      <li><a href="https://activitytravel.pro">Specification</a></li>
+      <li><a href="https://github.com/activity-travel-protocol/protocol-spec">GitHub</a></li>
+      <li><a href="https://activitytravel.org/#contact">Contact</a></li>
+      <li><a href="https://activitytravel.org/#subscribe" class="nav-subscribe">Subscribe</a></li>
+    </ul>
+  </nav>
+  <article class="article-wrap">
+    <div class="breadcrumb"><a href="/blog/">Blog</a><span class="breadcrumb-sep">›</span><span>Arc 2 — Business Cases by Sector</span></div>
+    <header class="post-header">
+      <span class="post-arc">Arc 2 — Business Cases by Sector</span>
+      <h1>Small suppliers: how to participate in the AI travel economy</h1>
+      <div class="post-meta">
+        <span class="post-date">1 April 2026</span>
+        <span class="post-audience-tag">Solo guides · Cooking classes · Small activity operators</span>
+      </div>
+    </header>
+    <div class="post-author">
+      <div class="author-avatar">TS</div>
+      <div class="author-info">
+        <span class="author-name">Tom Sato</span>
+        <span class="author-role">Founding Maintainer, Activity Travel Protocol</span>
+        <a class="author-contact" href="https://activitytravel.org/#contact">Contact →</a>
+      </div>
+    </div>
+    <div class="post-body">
+      <h2>Niran's cooking class and the thirty-platform problem</h2>
+      <p>Niran runs a Thai cooking class from her home kitchen in Bangkok's Phra Nakhon district. She has a 4.9-star rating on Airbnb Experiences. She is fully booked most weekends from November to March. She does not take credit cards directly — she uses the platform's payment flow. She does not have a website. She does not need one: the platform handles discovery, booking, and reviews.</p>
+      <p>The problem arrives when an AI travel agent assembles a Bangkok itinerary for a couple visiting in February. The agent is building on behalf of a guest who booked through a large OTA. That OTA does not have a direct integration with Airbnb Experiences. Niran's class is invisible to the agent — not because it isn't excellent, but because it exists on exactly one platform and that platform has not shared its inventory with this particular booking chain.</p>
+      <p>To reach more channels, Niran would need to create accounts on GetYourGuide, Klook, Viator, and a handful of regional aggregators — each with its own onboarding process, its own commission structure, its own cancellation policy, and its own review of her kitchen's health and safety documentation. Most of those platforms serve different markets with different guest expectations. Niran would spend more time managing her listings than running her classes.</p>
+      <p>This is not a niche problem. It is the structural position of every small, high-quality activity supplier in the world. The best experiences in any destination are often run by individuals who have the skills and the reputation but not the administrative capacity to be everywhere at once.</p>
+
+      <div class="pullquote">The best experiences in any destination are often run by people who cannot afford to be on thirty platforms simultaneously. The protocol fixes that structural problem at the root.</div>
+
+      <h2>The same problem, a different latitude</h2>
+      <p>Priya guides small groups through the Sinharaja Forest Reserve in Sri Lanka — the island's UNESCO-listed lowland rainforest, dense with endemic bird species and medicinal plants. Her groups are limited to six. The experience is genuinely rare. She has been written up in three independent travel publications and has a following among serious birders from Europe and Japan.</p>
+      <p>She has tried multiple booking platforms. The ones with the largest distribution reach price competitively on commission, which erodes her margins on small-group operations. The platforms that serve high-end travellers charge flat monthly fees she cannot justify in the off-season. There is no platform that serves both her distribution need and her business model.</p>
+      <p>What Niran and Priya both need is not another platform. It is a way to be in every booking system simultaneously, with one registration, at a cost that scales with actual bookings rather than presence.</p>
+
+      <h2>The two-path problem</h2>
+
+      <div class="diagram-block">
+        <div class="diagram-label">Diagram — Two paths: today vs. with the protocol</div>
+        <div class="path-grid">
+          <div class="path-col">
+            <div class="path-label">Today</div>
+            <div class="path-step"><strong>Onboarding</strong>Separate account, documentation review, and policy acceptance on each platform</div>
+            <div class="path-step"><strong>Distribution</strong>Visible only on platforms where you have a listing. Each platform reaches a different segment.</div>
+            <div class="path-step"><strong>Commercial terms</strong>Platform-set commission or subscription fee. No portability between platforms.</div>
+            <div class="path-step"><strong>Duty of care</strong>Informal — handled through platform policy and individual supplier practice</div>
+            <div class="path-step"><strong>AI agent reach</strong>Only accessible to agents that integrate the specific platform where you are listed</div>
+          </div>
+          <div class="path-col with-protocol">
+            <div class="path-label">With the protocol</div>
+            <div class="path-step"><strong>One Capability Declaration</strong>Filed once. Describes what you offer, when, at what price, under what conditions. Machine-readable by any platform or agent implementing the protocol.</div>
+            <div class="path-step"><strong>Full network reach</strong>Readable by every OTA, channel manager, hotel concierge system, and AI booking agent that implements the protocol.</div>
+            <div class="path-step"><strong>Your terms, portable</strong>Commercial terms, cancellation policy, group size limits — all in the Capability Declaration. Every booking respects your terms.</div>
+            <div class="path-step"><strong>Structured duty of care</strong>Pre-Arrangement Declarations establish who holds duty of care at each handoff point. Verified once in the Party Registry.</div>
+            <div class="path-step"><strong>Full AI agent reach</strong>Discoverable by every AI booking agent in the network. One registration reaches all of them.</div>
+          </div>
+        </div>
+      </div>
+
+      <h2>Three mechanisms that make this work</h2>
+
+      <div class="diagram-block">
+        <div class="diagram-label">Diagram — How the protocol works for small suppliers</div>
+        <table class="mech-table">
+          <thead><tr><th>Mechanism</th><th>What it means for a small supplier</th><th>What it replaces</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Capability Declaration</td>
+              <td>A structured form describing your offering: activity type, group size, duration, price, availability calendar, language, physical requirements, cancellation terms. Filed once. Updated when you choose.</td>
+              <td>Separate onboarding on each platform. Separate content management for each listing. Hours of duplicated administrative work every season.</td>
+            </tr>
+            <tr>
+              <td>Pre-Arrangement Declaration</td>
+              <td>A structured commercial agreement with a hotel, tour operator, or OTA that wants to include your experience in their packages. Agreed once, operative in every subsequent booking. Establishes duty of care assignment and disruption protocol.</td>
+              <td>Informal arrangements, email threads, WhatsApp confirmations, and verbal agreements that have no legal weight and create no accountability record.</td>
+            </tr>
+            <tr>
+              <td>Party Registry</td>
+              <td>Your credentials — business registration, sector licence, insurance policy, certifications — verified once. Every booking agent in the network can verify them through the same interface.</td>
+              <td>Re-submitting the same documentation to each platform's compliance team. Different standards, different timelines, different outcomes.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>What this means in practice for Niran and Priya</h2>
+      <p>For Niran, filing a Capability Declaration means that when the AI travel agent assembles that Bangkok February itinerary, Niran's cooking class is visible — with her availability, her group size limit, her price, and her cancellation terms all machine-readable. The agent does not need a platform integration. It reads the Capability Declaration through the protocol interface. Niran appears in the assembled itinerary alongside the hotel and the transfer service.</p>
+      <p>For Priya, the Pre-Arrangement Declaration with two or three Colombo-based luxury operators means that when those operators assemble itineraries for birding-focused guests, Priya's rainforest guide service is a structured, bookable component — with verified credentials, confirmed availability, and clearly defined duty of care terms. She is not an informal referral. She is a protocol participant.</p>
+      <p>Neither of them needs a website. Neither needs a development team. Neither needs to manage listings on thirty platforms. They need a single, well-structured Capability Declaration and the willingness to let the protocol do the distribution work.</p>
+
+      <div class="pullquote">One registration. The whole network.</div>
+    </div>
+    <div class="spec-links">
+      <div class="spec-links-label">Read more in the specification</div>
+      <ul>
+        <li><a href="https://activitytravel.pro/layer2/">Capability Declarations and Pre-Arrangement Declarations — activitytravel.pro/layer2/</a></li>
+        <li><a href="https://activitytravel.pro/layer1/">Party Registry — activitytravel.pro/layer1/</a></li>
+      </ul>
+    </div>
+    <nav class="post-nav" aria-label="Post navigation">
+      <div class="post-nav-prev"><div class="post-nav-label">Previous</div><a class="post-nav-title" href="./bp-16.html">What the Activity Travel Protocol means for travel insurance</a></div>
+      <div class="post-nav-next"><div class="post-nav-label">Next</div><a class="post-nav-title" href="./bp-10.html">The two-axis model: how the protocol thinks about a booking</a></div>
+    </nav>
+  </article>
+  <footer>
+    <div class="footer-left">Apache 2.0 &nbsp;·&nbsp; Founded by <a href="https://myauberge.com">MyAuberge K.K.</a> &nbsp;·&nbsp; <a href="https://activitytravel.pro">activitytravel.pro</a></div>
+    <div class="footer-right"><a href="https://activitytravel.org/#subscribe">Subscribe</a><a href="https://activitytravel.pro">Specification</a><a href="https://github.com/activity-travel-protocol/protocol-spec">GitHub</a><a href="https://activitytravel.org/#contact">Contact</a></div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Hotels: the complete guest experience, finally possible — Activity Travel Protocol</title>
+  <meta name="description" content="Hotels want to offer guests a complete experience — accommodation, activities, transfers, dining — but fragmented systems make it nearly impossible. The protocol changes that."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--ink:#0f1a14;--ink-mid:#2e4038;--ink-light:#5a7266;--ink-faint:#94aaa0;--paper:#f5f2eb;--paper-dark:#ede9e0;--accent:#1e6b45;--rule:#d4cfc4;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;}
+    html{scroll-behavior:smooth;}body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+    nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:60px;}
+    .nav-brand{font-family:var(--serif);font-size:15px;color:var(--ink);text-decoration:none;}.nav-links{display:flex;gap:32px;list-style:none;}.nav-links a{font-size:13px;font-weight:500;color:var(--ink-light);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;transition:color 0.2s;}.nav-links a:hover{color:var(--accent);}.nav-links a.nav-active{color:var(--ink);}.nav-links a.nav-subscribe{color:var(--accent);border:1px solid var(--accent);border-radius:2px;padding:4px 12px;font-size:12px;}.nav-links a.nav-subscribe:hover{background:var(--accent);color:#fff;}
+    .article-wrap{max-width:720px;margin:0 auto;padding:72px 40px 96px;}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:40px;}.breadcrumb a{color:var(--ink-faint);text-decoration:none;}.breadcrumb a:hover{color:var(--accent);}.breadcrumb-sep{color:var(--rule);}
+    .post-header{margin-bottom:48px;}.post-arc{display:inline-block;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:2px;padding:4px 10px;margin-bottom:24px;}.post-header h1{font-family:var(--serif);font-size:clamp(32px,5vw,48px);line-height:1.1;color:var(--ink);letter-spacing:-0.02em;margin-bottom:20px;}
+    .post-meta{display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--rule);}.post-date{font-size:13px;color:var(--ink-faint);}.post-audience-tag{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);background:var(--paper-dark);border-radius:2px;padding:3px 8px;}
+    .post-author{display:flex;align-items:center;gap:14px;padding:20px 0;border-bottom:1px solid var(--rule);margin-bottom:48px;}.author-avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--serif);font-size:16px;color:#fff;}.author-info{display:flex;flex-direction:column;gap:2px;}.author-name{font-size:14px;font-weight:500;color:var(--ink);}.author-role{font-size:12px;color:var(--ink-faint);}.author-contact{font-size:12px;color:var(--accent);text-decoration:none;}.author-contact:hover{text-decoration:underline;}
+    .post-body{font-size:17px;line-height:1.8;color:var(--ink-mid);}.post-body h2{font-family:var(--serif);font-size:26px;line-height:1.2;color:var(--ink);letter-spacing:-0.01em;margin:56px 0 20px;}.post-body p{margin-bottom:24px;}.post-body p:last-child{margin-bottom:0;}
+    .pullquote{border-left:3px solid var(--accent);margin:40px 0;padding:20px 24px;background:#e8e3d8;font-family:var(--serif);font-size:20px;line-height:1.4;color:var(--ink);font-style:italic;}
+    .diagram-block{background:#e8e3d8;border:1px solid #b8b2a6;border-radius:4px;padding:32px;margin:40px 0;}.diagram-label{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-light);margin-bottom:20px;}.diagram-caption{font-size:13px;font-weight:300;color:var(--ink-light);font-style:italic;margin-top:16px;}
+    .workaround-table,.revenue-table{width:100%;border-collapse:collapse;}.workaround-table thead tr,.revenue-table thead tr{border-bottom:2px solid #b8b2a6;}.workaround-table th,.revenue-table th{padding:10px 14px;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-align:left;color:var(--ink-light);}.workaround-table td,.revenue-table td{padding:14px 14px;font-size:13px;vertical-align:top;line-height:1.55;border-bottom:1px solid #c8c2b6;color:var(--ink-mid);}.workaround-table td:first-child,.revenue-table td:first-child{font-weight:500;color:var(--ink);}.workaround-table tr:last-child td,.revenue-table tr:last-child td{border-bottom:none;}.revenue-table td:last-child{background:#dff0e8;color:var(--ink);}
+    .hub-diagram{display:grid;grid-template-columns:1fr auto 1fr;grid-template-rows:auto auto auto;gap:8px;align-items:center;justify-items:center;}
+    .hub-supplier{background:#d8d2c6;border-radius:3px;padding:10px 14px;font-size:12px;font-weight:500;color:var(--ink);text-align:center;width:100%;}
+    .hub-arrow{font-size:18px;color:#b8b2a6;font-weight:300;}
+    .hub-center{grid-column:2;grid-row:1/4;background:var(--accent);border-radius:4px;padding:20px 16px;text-align:center;color:#fff;}
+    .hub-center strong{display:block;font-family:var(--serif);font-size:15px;margin-bottom:8px;}
+    .hub-center span{font-size:11px;opacity:0.85;line-height:1.5;}
+    .spec-links{margin:48px 0;padding:28px 32px;background:var(--paper-dark);border:1px solid var(--rule);border-radius:4px;}.spec-links-label{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px;}.spec-links ul{list-style:none;display:flex;flex-direction:column;gap:8px;}.spec-links a{font-size:14px;color:var(--accent);text-decoration:none;}.spec-links a:hover{text-decoration:underline;}.spec-links a::before{content:'→ ';}
+    .post-nav{display:flex;justify-content:space-between;margin-top:64px;padding-top:40px;border-top:1px solid var(--rule);}.post-nav-prev{text-align:left;max-width:300px;}.post-nav-next{text-align:right;max-width:300px;}.post-nav-label{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;}.post-nav-title{font-family:var(--serif);font-size:17px;color:var(--ink);text-decoration:none;line-height:1.3;display:block;transition:color 0.2s;}.post-nav-title:hover{color:var(--accent);}.post-nav-next .post-nav-title::after{content:' →';}.post-nav-prev .post-nav-title::before{content:'← ';}
+    footer{border-top:1px solid var(--rule);padding:28px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}.footer-left{font-size:13px;color:var(--ink-faint);}.footer-left a{color:var(--ink-faint);text-decoration:none;}.footer-right{display:flex;gap:24px;}.footer-right a{font-size:13px;color:var(--ink-faint);text-decoration:none;}.footer-right a:hover{color:var(--ink-light);}
+    @media(max-width:680px){nav{padding:0 20px;}.nav-links{gap:16px;}.nav-links a{font-size:11px;}.article-wrap{padding:48px 24px 72px;}.post-nav{flex-direction:column;gap:24px;}.post-nav-next,.post-nav-prev{max-width:100%;text-align:left;}footer{padding:24px;flex-direction:column;align-items:flex-start;}}
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-brand" href="https://activitytravel.org/">Activity Travel Protocol</a>
+    <ul class="nav-links">
+      <li><a href="/blog/" class="nav-active">Blog</a></li>
+      <li><a href="https://activitytravel.pro">Specification</a></li>
+      <li><a href="https://github.com/activity-travel-protocol/protocol-spec">GitHub</a></li>
+      <li><a href="https://activitytravel.org/#contact">Contact</a></li>
+      <li><a href="https://activitytravel.org/#subscribe" class="nav-subscribe">Subscribe</a></li>
+    </ul>
+  </nav>
+  <article class="article-wrap">
+    <div class="breadcrumb"><a href="/blog/">Blog</a><span class="breadcrumb-sep">›</span><span>Arc 2 — Business Cases by Sector</span></div>
+    <header class="post-header">
+      <span class="post-arc">Arc 2 — Business Cases by Sector</span>
+      <h1>Hotels: the complete guest experience, finally possible</h1>
+      <div class="post-meta">
+        <span class="post-date">1 April 2026</span>
+        <span class="post-audience-tag">Hotels · Ryokans · Boutique properties</span>
+      </div>
+    </header>
+    <div class="post-author">
+      <div class="author-avatar">TS</div>
+      <div class="author-info">
+        <span class="author-name">Tom Sato</span>
+        <span class="author-role">Founding Maintainer, Activity Travel Protocol</span>
+        <a class="author-contact" href="https://activitytravel.org/#contact">Contact →</a>
+      </div>
+    </div>
+    <div class="post-body">
+      <h2>The gap at the centre of the guest experience</h2>
+      <p>Ask a hotel what its guests want and the answer is never "a room." It is a ski weekend. A cultural immersion. A coastal escape with the kayak tour and the foraging walk and the restaurant that only locals know about. The room is the base. The experience is the reason the guest chose this destination, this property, this stay.</p>
+      <p>Hotels know this better than anyone. A well-run property in a ski destination knows every ski school in the valley, every equipment rental shop, every mountain guide worth recommending. It has built those relationships over years. It fields the same guest questions every season: can you sort out a lesson? Can you arrange the transfer? Can you book us somewhere good for dinner on Saturday?</p>
+      <p>The answer, for most hotels, is: we can point you in the right direction. We can call ahead. But we cannot sell you the whole thing as a single package, price it transparently, and stand behind it end to end. Not without a structure that does not yet exist.</p>
+
+      <h2>Why the workarounds fail</h2>
+
+      <div class="diagram-block">
+        <div class="diagram-label">Diagram — The workarounds hotels have built, and their limits</div>
+        <table class="workaround-table">
+          <thead><tr><th>Workaround</th><th>What it costs</th><th>What it still cannot do</th></tr></thead>
+          <tbody>
+            <tr><td>Travel agency subsidiary</td><td>Legal overhead, ongoing compliance, separate accounting</td><td>Seamless guest experience — the subsidiary is a separate legal entity</td></tr>
+            <tr><td>Commission-only referral</td><td>Lost revenue, no brand control, no guest journey continuity</td><td>Guarantee quality or coordinate timing across suppliers</td></tr>
+            <tr><td>Informal partner arrangement</td><td>Legally fragile, liability exposure, no machine-readable record</td><td>Scale — each new supplier requires a new manual agreement</td></tr>
+            <tr><td>In-house activities only</td><td>Capital investment in facilities, staffing, insurance</td><td>Offer the breadth of a destination's full experience</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The structural failure shared by all four is the absence of a machine-readable accountability record. When something goes wrong — a guest misses a transfer, an activity is cancelled at short notice — there is no shared record of who held duty of care at what point, what obligations each party had, and who is responsible for what remedy.</p>
+
+      <div class="pullquote">The hotel does not need a travel agency licence. It needs a structured model for participating in a multi-supplier booking — one that handles regulatory compliance, trust chains, and duty of care automatically.</div>
+
+      <h2>The hotel as hub: how the protocol works</h2>
+      <p>The Activity Travel Protocol provides exactly that model. Three architectural elements are directly relevant to hotels.</p>
+      <p>The <strong>Capability Declaration</strong> is a machine-readable declaration of what the hotel can offer: accommodation types, check-in and check-out parameters, accessibility provisions, and — crucially — the list of activity suppliers with whom the hotel has Pre-Arrangement Declarations in place. The hotel publishes this once. Every booking agent that implements the protocol can read it.</p>
+      <p>The <strong>Pre-Arrangement Declaration</strong> is the structured commercial and operational agreement between the hotel and each activity supplier. It specifies who holds duty of care at each handoff point, what the cancellation and disruption terms are, and what happens if something goes wrong. Agreed once, operative in every subsequent booking that references the declaration.</p>
+      <p>The <strong>Booking Object</strong> is the live accountability record for each guest journey. From the moment a booking is confirmed to the moment the guest checks out, the Booking Object records every state transition, every duty of care transfer, every supplier handoff. In the event of a dispute, a regulatory audit, or a disruption requiring emergency coordination, the Booking Object is the single source of truth.</p>
+
+      <div class="diagram-block">
+        <div class="diagram-label">Diagram — The hotel as hub</div>
+        <div style="display:grid;grid-template-columns:1fr 56px 1fr;gap:8px;align-items:center;">
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div class="hub-supplier">Ski School</div>
+            <div class="hub-supplier">Station Transfer</div>
+            <div class="hub-supplier">Izakaya Dinner</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;align-items:center;color:#b8b2a6;font-size:20px;">
+            <span>↔</span><span>↔</span><span>↔</span>
+          </div>
+          <div style="background:var(--accent);border-radius:4px;padding:20px 16px;text-align:center;color:#fff;grid-row:1/4;">
+            <strong style="font-family:var(--serif);font-size:15px;display:block;margin-bottom:8px;">HOTEL</strong>
+            <span style="font-size:11px;opacity:0.9;line-height:1.6;">Capability Declaration<br>Booking Object Controller<br><br>Protocol handles:<br>Regulatory compliance<br>Trust chains<br>Duty of care records</span>
+          </div>
+          <div class="hub-supplier">Equipment Rental</div>
+          <div style="color:#b8b2a6;font-size:20px;text-align:center;">↔</div>
+          <div class="hub-supplier">Mountain Guide</div>
+        </div>
+        <div class="diagram-caption">Each arrow represents a Pre-Arrangement Declaration. The protocol manages compliance, trust chain integrity, and duty of care continuity across all supplier relationships simultaneously.</div>
+      </div>
+
+      <h2>Three immediate revenue opportunities</h2>
+
+      <div class="diagram-block">
+        <div class="diagram-label">Diagram — Revenue opportunities that follow from protocol adoption</div>
+        <table class="revenue-table">
+          <thead><tr><th>Opportunity</th><th>What it looks like</th><th>Why the protocol enables it</th></tr></thead>
+          <tbody>
+            <tr><td>Regional speciality packages for inbound travellers</td><td>A Nagano ryokan offers a three-night ski package: room, ski school, equipment rental, station transfer, Saturday kaiseki dinner. Marketed to overseas visitors via OTA.</td><td>Hotel files Pre-Arrangement Declarations with each supplier. Protocol handles duty of care continuity across the full journey. No travel agency licence required by the hotel.</td></tr>
+            <tr><td>Off-season domestic packages</td><td>A coastal hotel offers autumn weekend packages: room, kayak tour, foraging walk, local restaurant reservation. Targets domestic weekend travellers.</td><td>Protocol assembles the package dynamically at booking. Hotel captures activity margin without capital investment in any of the activities.</td></tr>
+            <tr><td>High-margin activity packages without hardware investment</td><td>A city hotel offers a cultural weekend: room, tea ceremony, studio pottery class, sake tasting tour. Zero inventory beyond the room itself.</td><td>Pre-Arrangement Declarations give the hotel a structured commercial relationship with activity suppliers. The Booking Object holds all duty of care obligations.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>For boutique properties and ryokans, the protocol is particularly significant. A small property cannot afford a travel agency subsidiary. It cannot hire a dedicated partnerships team to manage informal supplier agreements. But it can file a Capability Declaration and establish Pre-Arrangement Declarations with three or four local suppliers — and immediately participate in the full AI-era booking ecosystem as a hub, not a hotel room.</p>
+      <p>For hotel chains, the opportunity is different in scale but identical in structure. A chain that establishes Pre-Arrangement Declarations with activity suppliers across its portfolio creates a destination experience layer that no OTA can replicate — because the OTA does not hold the local supplier relationships, and the chain does.</p>
+
+      <div class="pullquote">The hotel has always been the best-placed entity in the destination to offer the complete guest experience. The protocol gives it the infrastructure to do so — legally, operationally, and at scale.</div>
+    </div>
+    <div class="spec-links">
+      <div class="spec-links-label">Read more in the specification</div>
+      <ul>
+        <li><a href="https://activitytravel.pro/layer2/">Capability Declarations and Pre-Arrangement Declarations — activitytravel.pro/layer2/</a></li>
+        <li><a href="https://activitytravel.pro/layer3/">Booking Object state lifecycle — activitytravel.pro/layer3/</a></li>
+        <li><a href="https://activitytravel.pro/layer1/">Party Registry — activitytravel.pro/layer1/</a></li>
+      </ul>
+    </div>
+    <nav class="post-nav" aria-label="Post navigation">
+      <div class="post-nav-prev"><div class="post-nav-label">Previous</div><a class="post-nav-title" href="./bp-07.html">Why every major OTA will need to support AI agent bookings</a></div>
+      <div class="post-nav-next"><div class="post-nav-label">Next</div><a class="post-nav-title" href="./bp-09.html">Duty of Care: the concept that changes everything</a></div>
+    </nav>
+  </article>
+  <footer>
+    <div class="footer-left">Apache 2.0 &nbsp;·&nbsp; Founded by <a href="https://myauberge.com">MyAuberge K.K.</a> &nbsp;·&nbsp; <a href="https://activitytravel.pro">activitytravel.pro</a></div>
+    <div class="footer-right"><a href="https://activitytravel.org/#subscribe">Subscribe</a><a href="https://activitytravel.pro">Specification</a><a href="https://github.com/activity-travel-protocol/protocol-spec">GitHub</a><a href="https://activitytravel.org/#contact">Contact</a></div>
+  </footer>
+</body>
+</html>

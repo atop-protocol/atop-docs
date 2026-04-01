@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>The travel agency of the AI era — Activity Travel Protocol</title>
+  <meta name="description" content="AI agents are taking over the assembly work that defined 20th-century travel agencies. What remains — and what becomes more important — is oversight, exception handling, and accountability."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--ink:#0f1a14;--ink-mid:#2e4038;--ink-light:#5a7266;--ink-faint:#94aaa0;--paper:#f5f2eb;--paper-dark:#ede9e0;--accent:#1e6b45;--rule:#d4cfc4;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;}
+    html{scroll-behavior:smooth;}body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+    nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:60px;}
+    .nav-brand{font-family:var(--serif);font-size:15px;color:var(--ink);text-decoration:none;letter-spacing:0.01em;}
+    .nav-links{display:flex;gap:32px;list-style:none;}.nav-links a{font-size:13px;font-weight:500;color:var(--ink-light);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;transition:color 0.2s;}.nav-links a:hover{color:var(--accent);}.nav-links a.nav-active{color:var(--ink);}.nav-links a.nav-subscribe{color:var(--accent);border:1px solid var(--accent);border-radius:2px;padding:4px 12px;font-size:12px;}.nav-links a.nav-subscribe:hover{background:var(--accent);color:#fff;}
+    .article-wrap{max-width:720px;margin:0 auto;padding:72px 40px 96px;}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:40px;}.breadcrumb a{color:var(--ink-faint);text-decoration:none;}.breadcrumb a:hover{color:var(--accent);}.breadcrumb-sep{color:var(--rule);}
+    .post-header{margin-bottom:48px;}.post-arc{display:inline-block;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:2px;padding:4px 10px;margin-bottom:24px;}.post-header h1{font-family:var(--serif);font-size:clamp(32px,5vw,48px);line-height:1.1;color:var(--ink);letter-spacing:-0.02em;margin-bottom:20px;}
+    .post-meta{display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--rule);}.post-date{font-size:13px;color:var(--ink-faint);}.post-audience-tag{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);background:var(--paper-dark);border-radius:2px;padding:3px 8px;}
+    .post-author{display:flex;align-items:center;gap:14px;padding:20px 0;border-bottom:1px solid var(--rule);margin-bottom:48px;}.author-avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--serif);font-size:16px;color:#fff;}.author-info{display:flex;flex-direction:column;gap:2px;}.author-name{font-size:14px;font-weight:500;color:var(--ink);}.author-role{font-size:12px;color:var(--ink-faint);}.author-contact{font-size:12px;color:var(--accent);text-decoration:none;}.author-contact:hover{text-decoration:underline;}
+    .post-body{font-size:17px;line-height:1.8;color:var(--ink-mid);}.post-body h2{font-family:var(--serif);font-size:26px;line-height:1.2;color:var(--ink);letter-spacing:-0.01em;margin:56px 0 20px;}.post-body p{margin-bottom:24px;}.post-body p:last-child{margin-bottom:0;}
+    .pullquote{border-left:3px solid var(--accent);margin:40px 0;padding:20px 24px;background:#e8e3d8;font-family:var(--serif);font-size:20px;line-height:1.4;color:var(--ink);font-style:italic;}
+    .diagram-block{background:#e8e3d8;border:1px solid #b8b2a6;border-radius:4px;padding:32px;margin:40px 0;}.diagram-label{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-light);margin-bottom:20px;}.diagram-caption{font-size:13px;font-weight:300;color:var(--ink-light);font-style:italic;margin-top:16px;}
+    .compare-table{width:100%;border-collapse:collapse;}.compare-table thead tr{border-bottom:2px solid #b8b2a6;}.compare-table th{padding:10px 14px;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-align:left;color:var(--ink-light);width:33%;}.compare-table th:first-child{width:20%;}.compare-table td{padding:14px 14px;font-size:13px;font-weight:400;vertical-align:top;line-height:1.55;border-bottom:1px solid #c8c2b6;color:var(--ink-mid);}.compare-table td:first-child{font-weight:500;color:var(--ink);font-size:13px;}.compare-table td:last-child{background:#dff0e8;color:var(--ink);}.compare-table tr:last-child td{border-bottom:none;}
+    .auth-table{width:100%;border-collapse:collapse;}.auth-table thead tr{border-bottom:2px solid #b8b2a6;}.auth-table th{padding:10px 14px;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-align:left;color:var(--ink-light);}.auth-table td{padding:14px 14px;font-size:13px;vertical-align:top;line-height:1.55;border-bottom:1px solid #c8c2b6;color:var(--ink-mid);}.auth-table td:first-child{font-family:var(--sans);font-weight:700;color:var(--ink);font-size:15px;width:48px;}.auth-table td:nth-child(2){font-weight:500;color:var(--ink);width:120px;}.auth-table tr:last-child td{border-bottom:none;}
+    .workflow-flow{display:flex;align-items:stretch;gap:0;overflow-x:auto;margin-top:4px;}
+    .flow-step{flex:1;min-width:80px;padding:12px 10px;background:#d8d2c6;text-align:center;font-size:12px;font-weight:400;color:var(--ink-mid);line-height:1.4;border-right:1px solid #b8b2a6;}
+    .flow-step:last-child{border-right:none;}
+    .flow-step strong{display:block;font-size:11px;font-weight:500;color:var(--ink);margin-bottom:4px;}
+    .flow-step.confirmation{background:var(--accent);}.flow-step.confirmation strong,.flow-step.confirmation{color:#fff;}
+    .spec-links{margin:48px 0;padding:28px 32px;background:var(--paper-dark);border:1px solid var(--rule);border-radius:4px;}.spec-links-label{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px;}.spec-links ul{list-style:none;display:flex;flex-direction:column;gap:8px;}.spec-links a{font-size:14px;color:var(--accent);text-decoration:none;}.spec-links a:hover{text-decoration:underline;}.spec-links a::before{content:'→ ';}
+    .post-nav{display:flex;justify-content:space-between;margin-top:64px;padding-top:40px;border-top:1px solid var(--rule);}.post-nav-prev{text-align:left;max-width:300px;}.post-nav-next{text-align:right;max-width:300px;}.post-nav-label{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;}.post-nav-title{font-family:var(--serif);font-size:17px;color:var(--ink);text-decoration:none;line-height:1.3;display:block;transition:color 0.2s;}.post-nav-title:hover{color:var(--accent);}.post-nav-next .post-nav-title::after{content:' →';}.post-nav-prev .post-nav-title::before{content:'← ';}
+    footer{border-top:1px solid var(--rule);padding:28px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}.footer-left{font-size:13px;color:var(--ink-faint);}.footer-left a{color:var(--ink-faint);text-decoration:none;}.footer-right{display:flex;gap:24px;}.footer-right a{font-size:13px;color:var(--ink-faint);text-decoration:none;}.footer-right a:hover{color:var(--ink-light);}
+    @media(max-width:680px){nav{padding:0 20px;}.nav-links{gap:16px;}.nav-links a{font-size:11px;}.article-wrap{padding:48px 24px 72px;}.post-nav{flex-direction:column;gap:24px;}.post-nav-next,.post-nav-prev{max-width:100%;text-align:left;}footer{padding:24px;flex-direction:column;align-items:flex-start;}}
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-brand" href="https://activitytravel.org/">Activity Travel Protocol</a>
+    <ul class="nav-links">
+      <li><a href="/blog/" class="nav-active">Blog</a></li>
+      <li><a href="https://activitytravel.pro">Specification</a></li>
+      <li><a href="https://github.com/activity-travel-protocol/protocol-spec">GitHub</a></li>
+      <li><a href="https://activitytravel.org/#contact">Contact</a></li>
+      <li><a href="https://activitytravel.org/#subscribe" class="nav-subscribe">Subscribe</a></li>
+    </ul>
+  </nav>
+  <article class="article-wrap">
+    <div class="breadcrumb"><a href="/blog/">Blog</a><span class="breadcrumb-sep">›</span><span>Arc 2 — Business Cases by Sector</span></div>
+    <header class="post-header">
+      <span class="post-arc">Arc 2 — Business Cases by Sector</span>
+      <h1>The travel agency of the AI era</h1>
+      <div class="post-meta">
+        <span class="post-date">1 April 2026</span>
+        <span class="post-audience-tag">Travel agents · OTAs · Tour operators</span>
+      </div>
+    </header>
+    <div class="post-author">
+      <div class="author-avatar">TS</div>
+      <div class="author-info">
+        <span class="author-name">Tom Sato</span>
+        <span class="author-role">Founding Maintainer, Activity Travel Protocol</span>
+        <a class="author-contact" href="https://activitytravel.org/#contact">Contact →</a>
+      </div>
+    </div>
+    <div class="post-body">
+      <h2>The connectivity problem</h2>
+      <p>A traveller opens an app and types: I want a ski week in Nagano in February. Four nights, ski school for a beginner, equipment rental, transfer from Nagano station on arrival, a good dinner on the Saturday.</p>
+      <p>In today's world, that request reaches an AI assistant that can understand it perfectly and book almost none of it. It can find the hotel. It can probably book the transfer. The ski school, the equipment rental, the restaurant reservation — each of those requires a separate platform, a separate account, a separate confirmation. The AI can recommend. It cannot assemble.</p>
+      <p>This is not a capability problem. The AI is capable enough. It is a connectivity problem. There is no shared language that lets an AI agent read what a ski school offers, confirm availability for a specific date, agree commercial terms, and slot that confirmation into a coherent booking that also includes the hotel, the transfer, and the dinner — as a single package, with a single accountability record, and a single point of contact when something goes wrong.</p>
+      <p>The 20th-century travel agent solved this problem manually. AI is about to do all of that automatically — at any scale, across any geography, in seconds. The question is not whether this happens. It is happening. The question is what structure it runs on.</p>
+
+      <h2>What changes — and what does not</h2>
+
+      <div class="diagram-block">
+        <div class="diagram-label">Diagram — The travel agent: then and now</div>
+        <table class="compare-table">
+          <thead><tr><th>Task</th><th>The 20th-century travel agent</th><th>The AI-era travel agent</th></tr></thead>
+          <tbody>
+            <tr><td>Assembly</td><td>Phone each supplier. Negotiate terms. Check availability manually. Build the itinerary in a spreadsheet.</td><td>AI agent reads Capability Declarations from every registered supplier. Feasibility check runs in seconds. Itinerary assembled automatically.</td></tr>
+            <tr><td>Confirmation</td><td>Agent reviews and confirms each component individually. Slow. Prone to error at handoff points.</td><td>Booking Object reaches CONFIRMATION state. Human review gate: a qualified person checks the assembled package before it is committed.</td></tr>
+            <tr><td>Accountability</td><td>Agent holds duty of care informally — through professional knowledge and personal accountability. No machine-readable record.</td><td>Booking Object records every duty of care transfer. HEM ensures a human is reachable at every welfare-consequential decision point.</td></tr>
+            <tr><td>Disruption</td><td>Agent is called. Agent calls suppliers. Manual coordination. Outcome depends on individual relationships and availability.</td><td>TRAVELER_UNREACHABLE and BOOKING_SUSPENDED states trigger defined escalation chains. Human escalation is structured, not ad hoc.</td></tr>
+            <tr><td>Agent's role</td><td>Assembly and coordination.</td><td>Oversight, exception handling, and accountability.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pullquote">The travel agent of the AI era is not the person who builds the itinerary. It is the person who is accountable for what the AI built — and who handles the cases the AI cannot.</div>
+
+      <h2>How the protocol structures AI agent authority</h2>
+      <p>The Activity Travel Protocol gives AI travel agents a structured language. Every supplier who registers publishes a Capability Declaration: a machine-readable statement of what they offer, when, at what price, under what conditions, and with what duty of care obligations. The AI agent reads these declarations, runs a feasibility check against the traveller's request, and assembles a Booking Object — the live accountability record for the journey.</p>
+      <p>The AI does not operate in a single mode. The protocol defines four authority levels that determine how much autonomy an AI agent has in a given deployment.</p>
+
+      <div class="diagram-block">
+        <div class="diagram-label">Diagram — AI agent authority levels</div>
+        <table class="auth-table">
+          <thead><tr><th>Level</th><th>Name</th><th>What the AI agent can do</th><th>Human role</th></tr></thead>
+          <tbody>
+            <tr><td>L0</td><td>Read-only</td><td>Read Capability Declarations. Check availability. Produce itinerary options. No binding commitments.</td><td>Reviews options. Selects preferred itinerary.</td></tr>
+            <tr><td>L1</td><td>Confirmed with approval</td><td>Assembles itinerary. Reaches CONFIRMATION state. Commits only after explicit human approval at the gate.</td><td>Approves or rejects at CONFIRMATION. Retains full authority to modify before commitment.</td></tr>
+            <tr><td>L2</td><td>Delegated authority</td><td>Commits bookings within a pre-defined scope declared in the AgentAuthorityDeclaration. Escalates outside scope.</td><td>Sets scope via AgentAuthorityDeclaration. Receives escalations. Reviews completed bookings.</td></tr>
+            <tr><td>L3</td><td>Full autonomy</td><td>End-to-end booking authority within declared scope. Welfare-affecting decisions trigger HEM escalation regardless of level.</td><td>HEM escalation for welfare-consequential decisions. Oversight role, not approval role.</td></tr>
+          </tbody>
+        </table>
+        <div class="diagram-caption">Welfare-affecting decisions trigger Human Escalation Manager escalation regardless of level — the HEM is a floor, not a ceiling.</div>
+      </div>
+
+      <h2>The workflow in practice</h2>
+
+      <div class="diagram-block">
+        <div class="diagram-label">Diagram — The AI travel agency workflow</div>
+        <div class="workflow-flow">
+          <div class="flow-step"><strong>Traveller intent</strong>Natural language request</div>
+          <div class="flow-step"><strong>Capability read</strong>AI reads registered suppliers</div>
+          <div class="flow-step"><strong>Feasibility</strong>Availability, pricing, timing</div>
+          <div class="flow-step"><strong>Assembly</strong>Booking Object created</div>
+          <div class="flow-step confirmation"><strong>CONFIRMATION</strong>Human review gate</div>
+          <div class="flow-step"><strong>Fulfilment</strong>Duty of care live</div>
+          <div class="flow-step"><strong>Completion</strong>Safe return. Closed.</div>
+        </div>
+        <div class="diagram-caption">The CONFIRMATION gate is the structural human-in-the-loop point. Every booking passes through it.</div>
+      </div>
+
+      <h2>Not displacement — leverage</h2>
+      <p>For traditional travel agents, this is not a displacement story. It is a leverage story. An agent who previously managed fifty complex bookings a year — because assembly took most of their time — can now manage five hundred, because the AI handles assembly. Their value moves up the stack: into the advisory layer, the exception layer, and the accountability layer that no AI agent can hold on its own.</p>
+      <p>For OTAs, the protocol creates the infrastructure for a product category that does not yet exist at scale: the fully AI-assembled, fully accountable, multi-supplier itinerary. Not a recommendation. Not a list of links. A confirmed booking, with a Booking Object, with structured duty of care, with a human in the loop at CONFIRMATION and available throughout the journey.</p>
+      <p>For tour operators, the protocol enables a structural change in how packages are assembled. Instead of building fixed packages in advance and selling them from a catalogue, an operator can publish their supplier network as Capability Declarations and let the protocol assemble packages dynamically on demand — at any scale, for any destination they can reach.</p>
+
+      <div class="pullquote">The AI assembles. The protocol structures. The human is accountable. That is the travel agency of the AI era.</div>
+    </div>
+    <div class="spec-links">
+      <div class="spec-links-label">Read more in the specification</div>
+      <ul>
+        <li><a href="https://activitytravel.pro/layer2/">Capability Declarations — activitytravel.pro/layer2/</a></li>
+        <li><a href="https://activitytravel.pro/layer3/">AI agent participation and authority levels — activitytravel.pro/layer3/</a></li>
+        <li><a href="https://activitytravel.pro/layer3/">HEM and human escalation — activitytravel.pro/layer3/</a></li>
+      </ul>
+    </div>
+    <nav class="post-nav" aria-label="Post navigation">
+      <div class="post-nav-prev"><div class="post-nav-label">Previous</div><a class="post-nav-title" href="./bp-05.html">The gap in travel regulation that no one has addressed yet</a></div>
+      <div class="post-nav-next"><div class="post-nav-label">Next</div><a class="post-nav-title" href="./bp-07.html">Why every major OTA will need to support AI agent bookings</a></div>
+    </nav>
+  </article>
+  <footer>
+    <div class="footer-left">Apache 2.0 &nbsp;·&nbsp; Founded by <a href="https://myauberge.com">MyAuberge K.K.</a> &nbsp;·&nbsp; <a href="https://activitytravel.pro">activitytravel.pro</a></div>
+    <div class="footer-right"><a href="https://activitytravel.org/#subscribe">Subscribe</a><a href="https://activitytravel.pro">Specification</a><a href="https://github.com/activity-travel-protocol/protocol-spec">GitHub</a><a href="https://activitytravel.org/#contact">Contact</a></div>
+  </footer>
+</body>
+</html>

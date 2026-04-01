@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Duty of Care: the concept that changes everything — Activity Travel Protocol</title>
+  <meta name="description" content="No industry standard has ever made duty of care machine-readable, trackable in real time, and transferable between suppliers in a documented chain. Until now."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--ink:#0f1a14;--ink-mid:#2e4038;--ink-light:#5a7266;--ink-faint:#94aaa0;--paper:#f5f2eb;--paper-dark:#ede9e0;--accent:#1e6b45;--rule:#d4cfc4;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;}
+    html{scroll-behavior:smooth;}body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+    nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:60px;}
+    .nav-brand{font-family:var(--serif);font-size:15px;color:var(--ink);text-decoration:none;}.nav-links{display:flex;gap:32px;list-style:none;}.nav-links a{font-size:13px;font-weight:500;color:var(--ink-light);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;transition:color 0.2s;}.nav-links a:hover{color:var(--accent);}.nav-links a.nav-active{color:var(--ink);}.nav-links a.nav-subscribe{color:var(--accent);border:1px solid var(--accent);border-radius:2px;padding:4px 12px;font-size:12px;}.nav-links a.nav-subscribe:hover{background:var(--accent);color:#fff;}
+    .article-wrap{max-width:720px;margin:0 auto;padding:72px 40px 96px;}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:40px;}.breadcrumb a{color:var(--ink-faint);text-decoration:none;}.breadcrumb a:hover{color:var(--accent);}.breadcrumb-sep{color:var(--rule);}
+    .post-header{margin-bottom:48px;}.post-arc{display:inline-block;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:2px;padding:4px 10px;margin-bottom:24px;}.post-header h1{font-family:var(--serif);font-size:clamp(32px,5vw,48px);line-height:1.1;color:var(--ink);letter-spacing:-0.02em;margin-bottom:20px;}
+    .post-meta{display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--rule);}.post-date{font-size:13px;color:var(--ink-faint);}.post-audience-tag{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light);background:var(--paper-dark);border-radius:2px;padding:3px 8px;}
+    .post-author{display:flex;align-items:center;gap:14px;padding:20px 0;border-bottom:1px solid var(--rule);margin-bottom:48px;}.author-avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--serif);font-size:16px;color:#fff;}.author-info{display:flex;flex-direction:column;gap:2px;}.author-name{font-size:14px;font-weight:500;color:var(--ink);}.author-role{font-size:12px;color:var(--ink-faint);}.author-contact{font-size:12px;color:var(--accent);text-decoration:none;}.author-contact:hover{text-decoration:underline;}
+    .post-body{font-size:17px;line-height:1.8;color:var(--ink-mid);}.post-body h2{font-family:var(--serif);font-size:26px;line-height:1.2;color:var(--ink);letter-spacing:-0.01em;margin:56px 0 20px;}.post-body h3{font-size:17px;font-weight:500;color:var(--ink);margin:36px 0 14px;}.post-body p{margin-bottom:24px;}.post-body p:last-child{margin-bottom:0;}
+    .pullquote{border-left:3px solid var(--accent);margin:40px 0;padding:20px 24px;background:#e8e3d8;font-family:var(--serif);font-size:20px;line-height:1.4;color:var(--ink);font-style:italic;}
+    .diagram-block{background:#e8e3d8;border:1px solid #b8b2a6;border-radius:4px;padding:32px;margin:40px 0;}.diagram-label{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-light);margin-bottom:20px;}.diagram-caption{font-size:13px;font-weight:300;color:var(--ink-light);font-style:italic;margin-top:16px;}
+    .doc-timeline{display:flex;align-items:flex-start;gap:0;overflow-x:auto;margin-bottom:16px;}
+    .tl-party{flex:1;min-width:100px;}
+    .tl-party-label{font-size:11px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);padding:8px 10px;background:#d0c9bc;text-align:center;border-right:1px solid #b8b2a6;}
+    .tl-party:last-child .tl-party-label{border-right:none;}
+    .tl-segment{padding:12px 10px;font-size:12px;color:var(--ink-mid);background:#d8d2c6;border-right:1px solid #b8b2a6;border-top:1px solid #b8b2a6;min-height:60px;text-align:center;line-height:1.4;}
+    .tl-party:last-child .tl-segment{border-right:none;}
+    .tl-active{background:#dff0e8;color:var(--ink);font-weight:500;}
+    .tl-transfer{background:var(--accent);color:#fff;font-weight:500;}
+    .outcome-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+    .outcome-card{background:#f0ece3;border:1px solid #c8c2b6;border-radius:3px;padding:16px;}
+    .outcome-card strong{font-size:13px;font-weight:500;color:var(--ink);display:block;margin-bottom:8px;}
+    .outcome-card p{font-size:13px;color:var(--ink-light);line-height:1.55;margin:0;}
+    .spec-links{margin:48px 0;padding:28px 32px;background:var(--paper-dark);border:1px solid var(--rule);border-radius:4px;}.spec-links-label{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px;}.spec-links ul{list-style:none;display:flex;flex-direction:column;gap:8px;}.spec-links a{font-size:14px;color:var(--accent);text-decoration:none;}.spec-links a:hover{text-decoration:underline;}.spec-links a::before{content:'→ ';}
+    .post-nav{display:flex;justify-content:space-between;margin-top:64px;padding-top:40px;border-top:1px solid var(--rule);}.post-nav-prev{text-align:left;max-width:300px;}.post-nav-next{text-align:right;max-width:300px;}.post-nav-label{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;}.post-nav-title{font-family:var(--serif);font-size:17px;color:var(--ink);text-decoration:none;line-height:1.3;display:block;transition:color 0.2s;}.post-nav-title:hover{color:var(--accent);}.post-nav-next .post-nav-title::after{content:' →';}.post-nav-prev .post-nav-title::before{content:'← ';}
+    footer{border-top:1px solid var(--rule);padding:28px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}.footer-left{font-size:13px;color:var(--ink-faint);}.footer-left a{color:var(--ink-faint);text-decoration:none;}.footer-right{display:flex;gap:24px;}.footer-right a{font-size:13px;color:var(--ink-faint);text-decoration:none;}.footer-right a:hover{color:var(--ink-light);}
+    @media(max-width:680px){nav{padding:0 20px;}.nav-links{gap:16px;}.nav-links a{font-size:11px;}.article-wrap{padding:48px 24px 72px;}.outcome-grid{grid-template-columns:1fr;}.post-nav{flex-direction:column;gap:24px;}.post-nav-next,.post-nav-prev{max-width:100%;text-align:left;}footer{padding:24px;flex-direction:column;align-items:flex-start;}}
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-brand" href="https://activitytravel.org/">Activity Travel Protocol</a>
+    <ul class="nav-links">
+      <li><a href="/blog/" class="nav-active">Blog</a></li>
+      <li><a href="https://activitytravel.pro">Specification</a></li>
+      <li><a href="https://github.com/activity-travel-protocol/protocol-spec">GitHub</a></li>
+      <li><a href="https://activitytravel.org/#contact">Contact</a></li>
+      <li><a href="https://activitytravel.org/#subscribe" class="nav-subscribe">Subscribe</a></li>
+    </ul>
+  </nav>
+  <article class="article-wrap">
+    <div class="breadcrumb"><a href="/blog/">Blog</a><span class="breadcrumb-sep">›</span><span>Arc 2 — Business Cases by Sector</span></div>
+    <header class="post-header">
+      <span class="post-arc">Arc 2 — Business Cases by Sector</span>
+      <h1>Duty of Care: the concept that changes everything</h1>
+      <div class="post-meta">
+        <span class="post-date">1 April 2026</span>
+        <span class="post-audience-tag">Hotels · Tour operators · Insurers · Regulators</span>
+      </div>
+    </header>
+    <div class="post-author">
+      <div class="author-avatar">TS</div>
+      <div class="author-info">
+        <span class="author-name">Tom Sato</span>
+        <span class="author-role">Founding Maintainer, Activity Travel Protocol</span>
+        <a class="author-contact" href="https://activitytravel.org/#contact">Contact →</a>
+      </div>
+    </div>
+    <div class="post-body">
+      <h2>The question no one can answer</h2>
+      <p>You are about to walk up the spires of the Sagrada Família. Your hotel in Barcelona arranged the tour. The concierge recommended a specialist operator, made the reservation, and confirmed an English-language guide. The tour company collected a medical disclosure form when you booked: do you have a fear of heights? Are you comfortable on narrow spiral staircases? The questions were routine, but they mattered.</p>
+      <p>Now imagine something goes wrong at the top. A guest collapses. Not from a fall — from a pre-existing cardiac condition that the disclosure form mentioned, in the section nobody thought to flag to the guide.</p>
+      <p>Who is responsible? The hotel arranged the tour. The tour company operates it. The guide was standing next to the guest. The disclosure form was filed somewhere in a booking system. The emergency services arrive and ask: who was responsible for this person's welfare at the moment of the incident?</p>
+      <p>In today's travel industry, that question can take days to answer. The hotel has a booking reference. The tour company has a different booking reference. The disclosure form is in a third system. Nobody has a single, real-time record of who held Duty of Care at the moment the guest collapsed.</p>
+
+      <h2>The gap at the heart of travel</h2>
+      <p>Duty of Care is not a new concept. Every travel business carries a legal and ethical obligation to look after the people in its charge. Tour operators know it. Hotels know it. Airlines know it. The problem is not awareness — it is infrastructure.</p>
+      <p>Today, Duty of Care is handled through contracts, insurance policies, and after-the-fact legal liability. There is no real-time system that tracks who is responsible for a traveller's welfare as they move through a complex itinerary — from hotel lobby, into a taxi, through a tour operator's hands, up a spiral staircase, and back. When something goes wrong, the first task is reconstruction: who arranged what, who was present, who agreed to what. That reconstruction is slow, disputed, and expensive.</p>
+
+      <h2>Duty of Care as a first-class runtime state</h2>
+      <p>The Activity Travel Protocol makes Duty of Care a protocol-level construct, not a contractual afterthought. In a protocol-compliant booking, Duty of Care is assigned at the moment a booking is confirmed, and it transfers formally — with timestamps and confirmation requirements — every time the traveller moves from one party to another.</p>
+
+      <div class="diagram-block">
+        <div class="diagram-label">Diagram — Duty of Care timeline: who holds it and when</div>
+        <div class="doc-timeline">
+          <div class="tl-party">
+            <div class="tl-party-label">Hotel</div>
+            <div class="tl-segment tl-active">Booking confirmed. Hotel holds DoC.</div>
+            <div class="tl-segment tl-transfer">Transfer at lobby → hands off</div>
+            <div class="tl-segment">Awaiting return</div>
+            <div class="tl-segment tl-active">Guest returns. DoC restored.</div>
+          </div>
+          <div class="tl-party">
+            <div class="tl-party-label">Taxi operator</div>
+            <div class="tl-segment"></div>
+            <div class="tl-segment tl-active">Accepts DoC from hotel</div>
+            <div class="tl-segment tl-transfer">Arrival → hands off to tour</div>
+            <div class="tl-segment"></div>
+          </div>
+          <div class="tl-party">
+            <div class="tl-party-label">Tour operator</div>
+            <div class="tl-segment"></div>
+            <div class="tl-segment"></div>
+            <div class="tl-segment tl-active">Holds DoC at Sagrada Família. Pre-activity briefing includes guest health flags.</div>
+            <div class="tl-segment tl-transfer">Return → hands back</div>
+          </div>
+        </div>
+        <div class="diagram-caption">Each transfer is a protocol event — timestamped, confirmed, part of the booking's immutable event log.</div>
+      </div>
+
+      <h3>The Pre-Arrangement Declaration</h3>
+      <p>The Pre-Arrangement Declaration between the hotel and the tour operator establishes Duty of Care assignment before any booking is made. It specifies: at which point does the hotel's responsibility end and the tour operator's begin? What are the escalation procedures if something goes wrong during the tour? These terms are agreed once and become operative in every subsequent booking that references the Pre-Arrangement Declaration.</p>
+
+      <h3>The Pre-Activity Collection workflow</h3>
+      <p>The fitness declaration, the health condition flag, the heights anxiety note — these are collected as structured data through the protocol, stored against the booking, and surfaced to the relevant party at the relevant moment. The tour guide receives a pre-activity briefing that includes the relevant flags from every participant. This is not a PDF filed in a back-office system. It is a live record attached to a live booking.</p>
+
+      <h3>The Human Escalation Manager</h3>
+      <p>If a traveller is unreachable at an expected check-in point — if the guest does not return from the spires, if no one responds to a check-in request — the protocol initiates a defined escalation chain. Who is contacted first. What the fallback procedure is. Which party is formally in charge of the response. This chain is defined in advance, in the Pre-Arrangement Declaration, not improvised in the moment of crisis.</p>
+
+      <h2>What this means for operators and travellers</h2>
+
+      <div class="diagram-block">
+        <div class="diagram-label">Diagram — Three outcomes of formalised Duty of Care</div>
+        <div class="outcome-grid">
+          <div class="outcome-card"><strong>Bounded liability</strong><p>When the Duty of Care record shows the hotel's obligation ended at the lobby handoff, the liability question is answered by the record — not by a disputed reconstruction three months later.</p></div>
+          <div class="outcome-card"><strong>Better insurance</strong><p>The protocol's event log is the evidence base that insurers need to process claims efficiently. A booking with every Duty of Care transfer timestamped can be assessed in hours, not weeks.</p></div>
+          <div class="outcome-card"><strong>Safe AI bookings</strong><p>An AI agent cannot hold Duty of Care. The protocol ensures it is always assigned to a named human party — and that the AI agent cannot make a state transition that leaves it unassigned.</p></div>
+        </div>
+      </div>
+
+      <p>For travellers, the implication is simpler: someone is always formally responsible for your welfare. Not informally. Not probably. Formally — with a timestamp, a confirmed handoff, and a defined escalation path if anything goes wrong.</p>
+      <p>That is what the Sagrada Família scenario deserves. Not a dispute about booking references. A record.</p>
+
+      <div class="pullquote">Someone is always formally responsible for your welfare. Not informally. Not probably. Formally — with a timestamp, a confirmed handoff, and a defined escalation path.</div>
+    </div>
+    <div class="spec-links">
+      <div class="spec-links-label">Read more in the specification</div>
+      <ul>
+        <li><a href="https://activitytravel.pro/layer3/">Workflow — BOOKING_SUSPENDED, Human Escalation Manager — activitytravel.pro/layer3/</a></li>
+        <li><a href="https://activitytravel.pro/layer2/">Pre-Arrangement Declarations — activitytravel.pro/layer2/</a></li>
+      </ul>
+    </div>
+    <nav class="post-nav" aria-label="Post navigation">
+      <div class="post-nav-prev"><div class="post-nav-label">Previous</div><a class="post-nav-title" href="./bp-08.html">Hotels: the complete guest experience, finally possible</a></div>
+      <div class="post-nav-next"><div class="post-nav-label">Next</div><a class="post-nav-title" href="./bp-16.html">What the Activity Travel Protocol means for travel insurance</a></div>
+    </nav>
+  </article>
+  <footer>
+    <div class="footer-left">Apache 2.0 &nbsp;·&nbsp; Founded by <a href="https://myauberge.com">MyAuberge K.K.</a> &nbsp;·&nbsp; <a href="https://activitytravel.pro">activitytravel.pro</a></div>
+    <div class="footer-right"><a href="https://activitytravel.org/#subscribe">Subscribe</a><a href="https://activitytravel.pro">Specification</a><a href="https://github.com/activity-travel-protocol/protocol-spec">GitHub</a><a href="https://activitytravel.org/#contact">Contact</a></div>
+  </footer>
+</body>
+</html>

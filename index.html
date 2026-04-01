@@ -452,6 +452,76 @@
     }
     .footer-right a:hover { color: var(--ink-light); }
 
+    /* RESOURCE BOXES */
+    .hero-resources {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .resource-box {
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 24px 28px;
+      background: #fff;
+      text-decoration: none;
+      display: block;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .resource-box:hover {
+      border-color: var(--accent);
+      box-shadow: 0 2px 12px rgba(30,107,69,0.08);
+    }
+    .resource-box.blog:hover {
+      border-color: #1a5ca0;
+      box-shadow: 0 2px 12px rgba(26,92,160,0.08);
+    }
+    .resource-box-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      padding: 3px 8px;
+      margin-bottom: 14px;
+    }
+    .resource-box-badge.updated {
+      color: var(--accent);
+      background: rgba(30,107,69,0.08);
+    }
+    .resource-box-badge.new {
+      color: #1a5ca0;
+      background: rgba(26,92,160,0.08);
+    }
+    .resource-box h3 {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--ink);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .resource-box p {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink-light);
+      line-height: 1.65;
+      margin-bottom: 18px;
+    }
+    .resource-box-link {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .resource-box.blog .resource-box-link {
+      color: #1a5ca0;
+    }
+    @media (max-width: 600px) {
+      .hero-resources { grid-template-columns: 1fr; }
+    }
+
     /* 笏笏 RESPONSIVE 笏笏 */
     @media (max-width: 600px) {
       nav { padding: 0 20px; }
@@ -482,10 +552,23 @@
     <p class="hero-tagline">
       Activity Travel Protocol is an open standard for the global travel industry —enabling the discovery, booking, fulfillment, and duty-of-care management of complex, multi-supplier travel experiences.
     </p>
-    <div class="hero-actions">
-      <a class="btn-primary" href="https://activitytravel.pro">Read the Specification</a>
-      <a class="btn-secondary" href="https://github.com/activity-travel-protocol/protocol-spec">View on GitHub</a>
+
+    <div class="hero-resources">
+      <a class="resource-box spec" href="https://activitytravel.pro">
+        <span class="resource-box-badge updated">Updated</span>
+        <h3>Specification</h3>
+        <p>The full protocol specification —four layers covering identity, discovery, workflow, and schema. Layers 1–3 published.</p>
+        <span class="resource-box-link">Read the specification →</span>
+      </a>
+      <a class="resource-box blog" href="/blog/">
+        <span class="resource-box-badge new">New</span>
+        <h3>Blog</h3>
+        <p>Analysis, industry context, and technical commentary from the founding maintainer —for industry professionals and policy makers.</p>
+        <span class="resource-box-link">Read the blog →</span>
+      </a>
     </div>
+
+
   </section>
 
   <div class="section-rule"><hr /></div>
